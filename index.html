@@ -1,0 +1,1494 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Namachozhan N · DevOps Portfolio</title>
+<meta name="description" content="Senior DevOps Engineer with 5+ years of experience in Azure, Kubernetes (AKS), Terraform, Ansible, Argo CD and AI-powered automation. CKA and Azure AZ-900 certified. Based in Dubai, UAE."><meta property="og:title" content="Namachozhan N · DevOps Portfolio"><meta property="og:description" content="Senior DevOps Engineer with 5+ years of experience in Azure, Kubernetes (AKS), Terraform, Ansible, Argo CD and AI-powered automation. CKA and Azure AZ-900 certified. Based in Dubai, UAE."><meta property="og:type" content="website"><meta name="theme-color" content="#08111f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%277%27 fill=%27%230f1b2e%27/%3E%3Cpath d=%27M9 11l6 5-6 5M17 22h7%27 stroke=%27%234cc3ff%27 stroke-width=%272.6%27 fill=%27none%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+</head>
+<body>
+<style>
+/* Layout concept: one dark engineering console. Hero with a 3D crystal lattice behind the portrait, then live network diagrams, AI work, and experience. */
+:root{
+  --bg:#08111f; --panel:#0f1b2e; --panel-2:#0b1527; --line:#1f3150; --line-2:#2a4468;
+  --ink:#e6eefb; --muted:#8ea3c2; --dim:#5f7596;
+  --azure:#4cc3ff; --azure-2:#1f8fd6; --teal:#35e0c0; --amber:#ffc15a; --violet:#9b8cff; --red:#ff7a8a;
+  --font-display:'Bricolage Grotesque','IBM Plex Sans',system-ui,sans-serif;
+  --font-body:'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  --gutter:max(20px,env(safe-area-inset-left,0px));
+  --gutter-r:max(20px,env(safe-area-inset-right,0px));
+  --maxw:1180px;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;scroll-padding-top:84px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--font-body);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,p,figure,ul{margin:0}
+ul{padding:0;list-style:none}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+img{display:block;max-width:100%}
+svg{display:block}
+:focus-visible{outline:2px solid var(--azure);outline-offset:4px;border-radius:4px}
+::selection{background:#4cc3ff55}
+.wrap{width:100%;max-width:var(--maxw);margin-inline:auto;padding-left:var(--gutter);padding-right:var(--gutter-r)}
+.mono{font-family:var(--font-mono)}
+.eyebrow{font-family:var(--font-mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--azure)}
+.skip{position:fixed;left:12px;top:-60px;z-index:50;background:var(--azure);color:var(--bg);padding:10px 14px;border-radius:8px}
+.skip:focus{top:12px}
+section{position:relative}
+.section{padding-block:96px}
+.section-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 48px;flex-wrap:wrap;margin-bottom:44px}
+.section-head h2{font-family:var(--font-display);font-weight:650;font-size:clamp(32px,5.2vw,52px);line-height:1.06;letter-spacing:-.03em;margin-top:14px;text-wrap:balance}
+.section-head p{max-width:420px;color:var(--muted);text-wrap:pretty}
+
+/* header */
+.header{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:#08111fd9;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid #1f315066}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--bg);z-index:41}
+.header .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+.wordmark{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:21px;letter-spacing:-.02em}
+.wordmark .ico{width:34px;height:34px;border-radius:9px;display:grid;place-items:center;background:var(--panel);border:1px solid var(--line-2);color:var(--azure)}
+.wordmark i{font-style:normal;color:var(--azure)}
+.nav{display:flex;gap:28px;font-size:14px;color:var(--muted)}
+.nav a{padding:6px 0;transition:color .2s}
+.nav a:hover,.nav a.on{color:var(--ink)}
+.nav a.on{box-shadow:0 2px 0 var(--azure)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:500;border:1px solid var(--line-2);padding:9px 16px;border-radius:999px;transition:.2s}
+.nav-cta:hover{border-color:var(--azure);color:var(--azure)}
+.menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line-2);border-radius:10px;place-items:center}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:16px;border-radius:12px;padding:16px 22px;transition:transform .2s,box-shadow .2s,background .2s}
+.btn.primary{background:var(--azure);color:var(--bg);box-shadow:0 8px 30px -8px #4cc3ff88}
+.btn.primary:hover{transform:translateY(-2px);box-shadow:0 14px 36px -8px #4cc3ffaa}
+.btn.ghost{color:var(--ink);padding-inline:8px}
+.btn.ghost:hover{color:var(--azure)}
+
+/* hero */
+.hero{padding-block:64px 72px;overflow:hidden;isolation:isolate}
+.hero::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(ellipse 60% 70% at 78% 40%,#12395966,transparent 65%),radial-gradient(ellipse 40% 40% at 8% 90%,#1b2b5033,transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.95fr);gap:40px;align-items:center}
+.hero-copy{container-type:inline-size;min-width:0}
+.badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12px;letter-spacing:.14em;color:var(--teal);border:1px solid #35e0c033;background:#35e0c00d;padding:7px 14px;border-radius:999px}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 0 #35e0c088;animation:ping 2.2s infinite}
+@keyframes ping{70%{box-shadow:0 0 0 9px #35e0c000}100%{box-shadow:0 0 0 0 #35e0c000}}
+.kicker{margin-top:22px;font-family:var(--font-mono);font-size:12px;letter-spacing:.18em;color:var(--muted)}
+.hero h1{font-family:var(--font-display);font-weight:800;font-size:clamp(38px,15cqw,92px);font-size:clamp(38px,12vw,92px);line-height:.98;letter-spacing:-.045em;margin-top:18px}
+@supports (font-size:1cqw){.hero h1{font-size:clamp(38px,15cqw,92px)}}
+.hero h1 .role{display:block;margin-top:10px;font-size:.52em;line-height:1.08;letter-spacing:-.03em;font-weight:800;color:var(--bg);-webkit-text-stroke:2.4px var(--azure);paint-order:stroke fill;text-wrap:balance}
+.lede{margin-top:26px;max-width:540px;font-size:18px;line-height:1.65;color:var(--muted)}
+.lede strong{color:var(--ink);font-weight:600}
+.hero-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:34px}
+.proof{display:flex;flex-wrap:wrap;gap:10px 22px;margin-top:34px;font-size:14px;color:var(--muted)}
+.proof span{display:inline-flex;align-items:center;gap:8px}
+.proof svg{color:var(--azure)}
+
+
+/* portrait stage: two canvases (behind and in front of the photo) draw the 3D crystal lattice */
+.stage{position:relative;width:100%;max-width:520px;margin-inline:auto;aspect-ratio:1;min-width:0}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.stage .cv-back{z-index:0}
+.stage .cv-front{z-index:3}
+.portrait{position:absolute;z-index:2;left:50%;top:50%;width:52%;aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;overflow:hidden;border:1px solid #4cc3ff66;box-shadow:0 0 0 8px #08111f99,0 0 0 9px #4cc3ff33,0 0 60px 6px #1f8fd633,inset 0 0 30px #08111f66}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:50% 22%}
+.chip{position:absolute;z-index:4;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;white-space:nowrap;color:var(--ink);background:#0b1527e6;border:1px solid var(--line-2);padding:7px 11px;border-radius:9px;backdrop-filter:blur(6px);animation:bob 6s ease-in-out infinite;box-shadow:0 8px 24px -10px #000}
+.chip b{color:var(--azure);font-weight:500}
+.chip{display:flex;align-items:center;gap:8px}
+.chip .dot{width:7px;height:7px;border-radius:50%;background:#3ce68c;box-shadow:0 0 10px #3ce68c;flex:none}
+.chip.c1{left:0;top:10%}
+.chip.c2{right:0;bottom:15%;animation-delay:-3s}
+@keyframes bob{50%{transform:translateY(-7px)}}
+.loc{position:absolute;z-index:4;left:50%;bottom:-30px;transform:translateX(-50%);font-family:var(--font-mono);font-size:11px;letter-spacing:.2em;color:var(--dim);white-space:nowrap}
+
+/* keyword ticker */
+.ticker{border-block:1px solid var(--line);background:#0b152766;overflow:hidden;padding-block:20px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.ticker-track{display:flex;width:max-content;gap:44px;animation:slide 48s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker span{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:600;font-size:20px;color:var(--muted);white-space:nowrap}
+.ticker span::before{content:"";width:6px;height:6px;background:var(--azure);transform:rotate(45deg)}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* stats */
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--panel-2)}
+.stat{padding:26px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font-family:var(--font-display);font-weight:700;font-size:clamp(34px,4.4vw,48px);letter-spacing:-.03em;line-height:1;color:var(--ink)}
+.stat b em{font-style:normal;color:var(--azure)}
+.stat span{display:block;margin-top:10px;font-size:14px;color:var(--muted);line-height:1.45}
+
+/* skills */
+.skill-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:26px}
+.pill{font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;padding:9px 14px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted);transition:.2s}
+.pill:hover{color:var(--ink);border-color:var(--azure)}
+.pill[aria-pressed="true"]{background:#4cc3ff1f;border-color:var(--azure);color:var(--azure)}
+.skill-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.skill-card{background:var(--panel-2);border:1px solid var(--line);border-radius:16px;padding:22px;transition:border-color .25s,transform .25s,opacity .25s,background .25s;position:relative;overflow:hidden}
+.skill-card::after{content:"";position:absolute;inset:auto -30% -60% auto;width:180px;height:180px;background:radial-gradient(circle,#4cc3ff1a,transparent 70%);opacity:0;transition:opacity .3s}
+.skill-card:hover{border-color:#4cc3ff77;transform:translateY(-3px);background:var(--panel)}
+.skill-card:hover::after{opacity:1}
+.skill-card.dim{opacity:.28}
+.skill-card h3{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:650;font-size:19px;letter-spacing:-.01em}
+.skill-card h3 svg{color:var(--azure);flex:none}
+.skill-card .sub{margin-top:6px;font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.tags span{font-size:13px;padding:5px 10px;border-radius:8px;background:#4cc3ff12;border:1px solid #4cc3ff26;color:#b9dcf5;transition:.2s}
+.tags span:hover{background:#4cc3ff2b;border-color:var(--azure);color:#fff}
+.skill-card.wide{grid-column:span 2}
+
+/* toolchain sphere */
+.tool{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:36px;align-items:center;border:1px solid var(--line);border-radius:18px;background:linear-gradient(180deg,#0c172a,#0a1424);padding:24px 32px;margin-bottom:28px;overflow:hidden}
+.tool-cv{position:relative;width:100%;max-width:470px;margin-inline:auto;aspect-ratio:1}
+.tool-cv canvas{width:100%;height:100%;display:block;cursor:grab;touch-action:pan-y;border-radius:14px;outline-offset:2px}
+.tool-cv canvas.drag{cursor:grabbing}
+.tool-side h3{font-family:var(--font-display);font-weight:650;font-size:clamp(26px,3.6vw,36px);letter-spacing:-.02em;margin:12px 0 10px}
+.tool-side p{color:var(--muted);max-width:380px;text-wrap:pretty}
+.sph-read{margin:22px 0 18px;padding:14px 16px;border:1px solid var(--line-2);border-radius:12px;background:#0b1527;display:flex;flex-direction:column;gap:3px;max-width:380px}
+.sph-read b{font-family:var(--font-mono);font-weight:500;font-size:18px;color:var(--ink)}
+.sph-read span{font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sph-leg{list-style:none;display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--font-mono);font-size:12px;letter-spacing:.06em;color:var(--muted)}
+.sph-leg li{display:flex;align-items:center;gap:8px}
+.sph-leg i{width:8px;height:8px;border-radius:50%;background:var(--c);box-shadow:0 0 8px var(--c)}
+
+
+/* network lab */
+.lab{border:1px solid var(--line);border-radius:22px;background:linear-gradient(180deg,var(--panel-2),#09121f);overflow:hidden}
+.lab-bar{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;padding:16px 20px;border-bottom:1px solid var(--line);background:#0b1527}
+.lab-tabs{display:flex;flex-wrap:wrap;gap:8px}
+.lab-status{display:inline-flex;align-items:center;gap:10px;font-family:var(--font-mono);font-size:11px;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+.lab-body{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr)}
+.lab-view{padding:22px;min-width:0;display:flex;flex-direction:column;justify-content:center;background-image:radial-gradient(#1f315088 1px,transparent 1px);background-size:24px 24px}
+.lab-side{padding:26px 26px 24px;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:18px;min-width:0}
+.lab-side h3{font-family:var(--font-display);font-weight:650;font-size:24px;letter-spacing:-.02em;line-height:1.15;text-wrap:balance}
+.lab-side p{color:var(--muted);font-size:15px;text-wrap:pretty}
+.steps{display:flex;flex-direction:column;gap:6px;counter-reset:s}
+.step{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;text-align:left;padding:9px 10px;border-radius:10px;border:1px solid transparent;color:var(--muted);font-size:14px;line-height:1.4;transition:.2s;width:100%}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:24px;height:24px;border-radius:50%;border:1px solid var(--line-2);font-family:var(--font-mono);font-size:11px;color:var(--dim)}
+.step b{display:block;color:var(--ink);font-weight:600}
+.step:hover{background:#4cc3ff0d}
+.step.on{background:#4cc3ff14;border-color:#4cc3ff55;color:#c7e6fa}
+.step.on::before{background:var(--azure);border-color:var(--azure);color:var(--bg)}
+.lab-note{font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--dim);display:flex;gap:8px;align-items:center;margin-top:auto}
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.legend i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:7px;vertical-align:-1px}
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:14px 22px;margin-top:16px;padding:14px 16px;border:1px solid var(--line);border-radius:14px;background:#0b152799;font-size:14px;color:var(--muted)}
+.ctrl label{font-family:var(--font-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.ctrl input[type=range]{flex:1 1 180px;min-width:140px;accent-color:var(--azure);height:28px}
+.ctrl output{font-family:var(--font-mono);color:var(--azure);min-width:140px;text-align:right}
+.toggle{display:inline-flex;border:1px solid var(--line-2);border-radius:10px;padding:3px;background:#08111f}
+.toggle button{padding:7px 14px;border-radius:7px;font-size:13px;color:var(--muted)}
+.toggle button[aria-pressed="true"]{background:#4cc3ff22;color:var(--azure)}
+pre.code{margin:0;font-family:var(--font-mono);font-size:12px;line-height:1.6;color:#b9dcf5;background:#060d18;border:1px solid var(--line);border-radius:12px;padding:14px 16px;overflow-x:auto;max-width:100%}
+pre.code .k{color:var(--violet)}pre.code .v{color:var(--teal)}pre.code .c{color:var(--dim)}
+
+/* svg diagram vocabulary */
+.dg{width:100%;height:auto;overflow:visible}
+.dg .zone{fill:#4cc3ff06;stroke:var(--line-2);stroke-dasharray:5 6;stroke-width:1.2}
+.dg .zone.hub{fill:#4cc3ff0f;stroke:#4cc3ff66}
+.dg .zl{font-family:var(--font-mono);font-size:10px;letter-spacing:.16em;fill:var(--dim);text-transform:uppercase}
+.dg .box{fill:var(--panel);stroke:var(--line-2);stroke-width:1.2;transition:.25s}
+.dg .box.hot,.dg .g.on .box{fill:#10304d;stroke:var(--azure)}
+.dg .g{cursor:default;transition:opacity .25s}
+.dg .g.faded .t,.dg .g.faded .s,.dg .g.faded .ic{opacity:.42}
+.dg .g.faded .box{stroke:#1a2b46;fill:#0c1830}
+.dg .t{font-family:var(--font-body);font-size:13px;font-weight:600;fill:var(--ink)}
+.dg .s{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.1em;fill:var(--dim);text-transform:uppercase}
+.dg .ic{fill:none;stroke:var(--azure);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.dg .wire{fill:none;stroke:var(--line-2);stroke-width:1.5}
+.dg .wire.dash{stroke-dasharray:4 5}
+.dg .wire.hot{stroke:#4cc3ff88}
+.dg .lbl{font-family:var(--font-mono);font-size:9.5px;letter-spacing:.06em;fill:var(--muted)}
+.dg .lbl-bg{fill:var(--bg);stroke:none}
+.pkt{fill:var(--azure);filter:drop-shadow(0 0 5px #4cc3ffcc)}
+.pkt.teal{fill:var(--teal);filter:drop-shadow(0 0 5px #35e0c0cc)}
+.pkt.amber{fill:var(--amber);filter:drop-shadow(0 0 5px #ffc15acc)}
+.pkt.violet{fill:var(--violet);filter:drop-shadow(0 0 5px #9b8cffcc)}
+.pkt.red{fill:var(--red);filter:drop-shadow(0 0 5px #ff7a8acc)}
+.ring-pulse{fill:none;stroke:var(--azure);stroke-width:1.2;opacity:0;transform-box:fill-box;transform-origin:center;animation:pulse 2.8s ease-out infinite}
+@keyframes pulse{0%{opacity:.7;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+
+/* AI */
+.ai-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin-bottom:22px}
+.ai-card{background:var(--panel-2);border:1px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.ai-card .state{align-self:flex-start;font-family:var(--font-mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;padding:5px 10px;border-radius:999px;border:1px solid}
+.state.built{color:var(--teal);border-color:#35e0c044;background:#35e0c010}
+.state.dev{color:var(--amber);border-color:#ffc15a44;background:#ffc15a10}
+.ai-card h3{font-family:var(--font-display);font-weight:650;font-size:21px;line-height:1.2;letter-spacing:-.015em}
+.ai-card p{color:var(--muted);font-size:15px}
+.ai-split{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:16px}
+.panel{background:var(--panel-2);border:1px solid var(--line);border-radius:18px;padding:20px;min-width:0}
+.panel h4{margin:0 0 14px;font-family:var(--font-mono);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--azure)}
+.term{font-family:var(--font-mono);font-size:12.5px;line-height:1.7;background:#060d18;border:1px solid var(--line);border-radius:14px;padding:0;overflow:hidden}
+.term-top{display:flex;align-items:center;gap:7px;padding:10px 14px;border-bottom:1px solid var(--line);color:var(--dim);font-size:11px;letter-spacing:.1em}
+.term-top i{width:9px;height:9px;border-radius:50%;background:var(--line-2)}
+.term-top span{margin-left:8px}
+.term-body{padding:14px 16px;min-height:290px;white-space:pre-wrap;word-break:break-word;color:#b9c9e0}
+.term-body .u{color:var(--azure)}.term-body .a{color:var(--teal)}.term-body .m{color:var(--violet)}.term-body .d{color:var(--dim)}.term-body .w{color:var(--amber)}
+.caret{display:inline-block;width:7px;height:14px;background:var(--azure);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* experience */
+.stats-wrap{margin-bottom:56px}
+.jobs{display:flex;flex-direction:column}
+.job{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,2fr);gap:20px 48px;padding-block:40px;border-top:1px solid var(--line)}
+.job:last-child{border-bottom:1px solid var(--line)}
+.when{font-family:var(--font-mono);font-size:13px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}
+.when strong{display:block;margin-top:12px;font-weight:500;font-size:15px;letter-spacing:.02em;color:var(--ink);text-transform:none}
+.job h3{font-family:var(--font-display);font-weight:650;font-size:clamp(26px,3.4vw,34px);letter-spacing:-.02em;margin-top:10px;line-height:1.12}
+.job>div>p{margin-top:12px;color:var(--muted);max-width:640px}
+.job ul{margin-top:18px;display:grid;gap:10px;max-width:700px}
+.job li{position:relative;padding-left:22px;color:#b4c4dc;font-size:15.5px;line-height:1.55}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:8px;height:8px;border:1.5px solid var(--azure);border-radius:2px;transform:rotate(45deg) scale(.8)}
+.job li b{color:var(--ink);font-weight:600}
+.award{display:flex;gap:14px;align-items:flex-start;margin-top:24px;padding:16px 18px;border:1px solid #ffc15a44;background:#ffc15a0d;border-radius:14px;max-width:700px;font-size:15px;color:#e8d6b0}
+.award svg{flex:none;color:var(--amber);margin-top:2px}
+
+/* certifications */
+.certs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cert{display:flex;gap:16px;align-items:flex-start;padding:22px;border:1px solid var(--line);border-radius:16px;background:var(--panel-2);min-width:0}
+.cert .mk{flex:none;width:52px;height:52px;border-radius:14px;display:grid;place-items:center;background:#4cc3ff14;border:1px solid #4cc3ff44;color:var(--azure)}
+.cert h3{font-family:var(--font-display);font-weight:650;font-size:19px;line-height:1.2;margin-top:6px}
+.cert p{font-size:14px;color:var(--muted);margin-top:6px}
+.edu{margin-top:16px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 30px;padding:18px 22px;border:1px dashed var(--line-2);border-radius:14px;color:var(--muted);font-size:15px}
+.edu strong{color:var(--ink);font-weight:600}
+
+/* contact + footer */
+.contact{padding-block:96px;border-top:1px solid var(--line);background:radial-gradient(ellipse 70% 90% at 80% 100%,#12395955,transparent 70%)}
+.contact-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+.contact h2{font-family:var(--font-display);font-weight:700;font-size:clamp(34px,5.6vw,60px);letter-spacing:-.035em;line-height:1.03;margin-top:16px;text-wrap:balance}
+.contact h2 span{color:var(--azure)}
+.contact p.lead{margin-top:20px;color:var(--muted);max-width:480px;font-size:17px}
+.links{display:grid;gap:12px}
+.link{display:flex;align-items:center;gap:16px;padding:18px 20px;border:1px solid var(--line);border-radius:16px;background:var(--panel-2);transition:.2s;min-width:0}
+.link:hover{border-color:var(--azure);transform:translateX(4px)}
+.link>svg:first-child{color:var(--azure);flex:none}
+.link span{display:block;min-width:0;font-weight:600}
+.link small{display:block;font-weight:400;font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.link .arr{margin-left:auto;color:var(--dim);flex:none}
+.copy{margin-left:auto;font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;padding:7px 11px;border:1px solid var(--line-2);border-radius:8px;color:var(--muted);flex:none}
+.copy:hover{color:var(--azure);border-color:var(--azure)}
+footer{border-top:1px solid var(--line);padding-block:28px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px 24px;color:var(--dim);font-size:14px}
+
+
+/* responsive */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:28px}
+  .stage{max-width:460px}
+  .lab-body{grid-template-columns:1fr}
+  .lab-side{border-left:0;border-top:1px solid var(--line)}
+  .skill-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .skill-card.wide{grid-column:span 2}
+  .ai-grid{grid-template-columns:1fr}
+  .ai-split{grid-template-columns:1fr}
+  .certs{grid-template-columns:1fr}
+}
+@media(max-width:860px){
+  .tool{grid-template-columns:1fr;gap:8px;padding:16px}
+  .nav{display:none;position:absolute;left:0;right:0;top:72px;flex-direction:column;gap:2px;padding:14px var(--gutter-r) 20px var(--gutter);background:#08111ff2;border-bottom:1px solid var(--line);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+  .nav.open{display:flex}
+  .nav a{padding:12px 0;font-size:16px}
+  .nav a.on{box-shadow:none;color:var(--azure)}
+  .menu-btn{display:grid}
+  .nav-cta{display:none}
+  .job{grid-template-columns:1fr;gap:12px}
+  .contact-grid{grid-template-columns:1fr;gap:32px}
+  .section{padding-block:72px}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat:nth-child(2){border-right:0}
+  .stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+}
+@media(max-width:600px){
+  .skill-grid{grid-template-columns:1fr}
+  .skill-card.wide{grid-column:auto}
+  .hero{padding-block:36px 56px}
+  .lede{font-size:17px}
+  .chip{font-size:10px;padding:6px 9px}
+  .chip.c1{left:0}.chip.c2{right:0}
+  .lab-view{padding:12px 6px}
+  .lab-bar{padding:14px}
+  .lab-side{padding:20px 18px}
+  .ctrl output{text-align:left;min-width:0}
+  .section-head{margin-bottom:32px}
+  .link{padding:16px}
+  .ticker span{font-size:17px}
+  .term-body{min-height:340px}
+}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}
+  .ticker-track{animation:none}
+}
+
+/* icons + small helpers */
+.i{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.skill-card.full{grid-column:1/-1}
+.dg-scroll{width:100%}
+@media(max-width:600px){
+  .dg-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;padding-bottom:6px}
+  .dg{min-width:var(--dgmin,500px)}
+  .dg-scroll::after{content:"swipe to see the full diagram";display:block;margin-top:6px;font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;color:var(--dim);text-transform:uppercase}
+}
+
+.step-group{font-family:var(--font-mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--azure);margin:12px 0 2px 2px}
+.step-group:first-child{margin-top:0}
+.dg .box.gate{stroke:#ffc15a99}
+.dg .g.on .box.gate{fill:#33290f;stroke:var(--amber)}
+.dg .ring-pulse{stroke:var(--amber)}
+.dg .g.on .ic.gate{stroke:var(--amber)}
+
+.azmap{margin-top:16px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.azmap div{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.5fr);gap:6px 14px;padding:10px 14px;border-top:1px solid var(--line);font-size:14px;line-height:1.45}
+.azmap div:first-child{border-top:0}
+.azmap dt,.azmap span:first-child{color:var(--muted)}
+.azmap span:last-child{color:var(--ink);font-weight:500}
+
+.lab{overflow:clip}
+.lab-view{display:block}
+.lab-sticky{position:sticky;top:96px}
+.step>span>span{display:none}
+.step.on>span>span{display:block;margin-top:2px}
+@media(max-width:1020px){.lab-sticky{position:static}}
+
+/* full-width platform map */
+.lab.wide .lab-body{grid-template-columns:1fr}
+.lab.wide .lab-sticky{position:static}
+.lab.wide .lab-side{border-left:0;border-top:1px solid var(--line)}
+.lab.wide .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.lab.wide .step>span>span{display:block;margin-top:2px}
+@media(max-width:1020px){.lab.wide .steps{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.lab.wide .steps{grid-template-columns:1fr}}
+
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="i-terminal" viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></symbol>
+<symbol id="i-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></symbol>
+<symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></symbol>
+<symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+<symbol id="i-server" viewBox="0 0 24 24"><rect width="20" height="8" x="2" y="2" rx="2"/><rect width="20" height="8" x="2" y="14" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></symbol>
+<symbol id="i-branch" viewBox="0 0 24 24"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></symbol>
+<symbol id="i-network" viewBox="0 0 24 24"><rect x="16" y="16" width="6" height="6" rx="1"/><rect x="2" y="16" width="6" height="6" rx="1"/><rect x="9" y="2" width="6" height="6" rx="1"/><path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/><path d="M12 12V8"/></symbol>
+<symbol id="i-blocks" viewBox="0 0 24 24"><rect width="7" height="7" x="14" y="3" rx="1"/><path d="M10 21V8a1 1 0 0 0-1-1H4a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5a1 1 0 0 0-1-1H3"/></symbol>
+<symbol id="i-code" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></symbol>
+<symbol id="i-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+<symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></symbol>
+<symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+<symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+<symbol id="i-cpu" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M15 2v2M15 20v2M2 15h2M2 9h2M20 15h2M20 9h2M9 2v2M9 20v2"/></symbol>
+<symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5V19A9 3 0 0 0 21 19V5"/><path d="M3 12A9 3 0 0 0 21 12"/></symbol>
+<symbol id="i-activity" viewBox="0 0 24 24"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+<symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+<symbol id="i-grad" viewBox="0 0 24 24"><path d="M22 10v6"/><path d="M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+<symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+</defs></svg>
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="header">
+  <div class="wrap">
+    <a class="wordmark" href="#about" aria-label="Namachozhan, home"><span class="ico"><svg class="i"><use href="#i-terminal"/></svg></span><span>namachozhan<i>.</i></span></a>
+    <nav class="nav" id="nav" aria-label="Main navigation">
+      <a href="#about">About</a><a href="#skills">Skills</a><a href="#network">Network lab</a><a href="#ai">AI &amp; PoCs</a><a href="#work">Experience</a><a href="#credentials">Credentials</a>
+    </nav>
+    <a class="nav-cta" href="#contact">Let’s talk <svg class="i"><use href="#i-up-right"/></svg></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="nav"><svg class="i"><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<main id="main">
+<section class="hero" id="about">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="badge"><span class="dot"></span>OPEN TO DEVOPS OPPORTUNITIES</span>
+      <div class="kicker">CLOUD · KUBERNETES · AUTOMATION · AI</div>
+      <h1>Namachozhan <span class="role">Senior DevOps Engineer.</span></h1>
+      <p class="lede">Senior DevOps Engineer with <strong>5+ years of experience</strong> running production Kubernetes platforms for Nokia and Chubb Insurance. From Terraform and GitOps to an AI agent that troubleshoots Kubernetes.</p>
+      <div class="hero-actions">
+        <a class="btn primary" href="#network">Explore my work <svg class="i"><use href="#i-up-right"/></svg></a>
+        <a class="btn ghost" href="assets/Namachozhan_N_Resume.pdf" target="_blank" rel="noopener">Download résumé <svg class="i"><use href="#i-download"/></svg></a>
+      </div>
+      <div class="proof">
+        <span><svg class="i"><use href="#i-shield"/></svg>CKA certified</span>
+        <span><svg class="i"><use href="#i-cloud"/></svg>Azure AZ-900</span>
+        <span><svg class="i"><use href="#i-award"/></svg>Spot Award, Feb 2026</span>
+      </div>
+    </div>
+    <div class="stage" id="stage">
+      <canvas class="cv-back" id="cvBack" aria-hidden="true"></canvas>
+      <div class="portrait"><img src="assets/portrait.jpg" srcset="assets/portrait-480.jpg 480w, assets/portrait.jpg 800w" sizes="(max-width:600px) 46vw, 270px" width="800" height="800" alt="Portrait of Namachozhan N, Senior DevOps Engineer" fetchpriority="high"></div>
+      <canvas class="cv-front" id="cvFront" aria-hidden="true"></canvas>
+      <span class="chip c1"><i class="dot"></i>CKA<b> · 2026</b></span>
+      <span class="chip c2"><i class="dot"></i>AZ-900<b> · 2026</b></span>
+      <span class="loc">BASED IN DUBAI, UAE</span>
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Keywords"><div class="ticker-track" id="ticker">
+  <span>Kubernetes</span><span>AKS</span><span>Terraform</span><span>Ansible</span><span>Argo CD</span><span>Helm</span><span>Gateway API</span><span>HTTPRoute</span><span>Azure DevOps</span><span>Docker</span><span>Azure Monitor</span><span>Prometheus</span><span>Grafana</span><span>Trivy</span><span>SonarQube</span><span>Key Vault</span><span>Workload Identity</span><span>Secrets Store CSI</span><span>ACR</span><span>Python</span><span>Linux</span><span>MCP</span><span>RAG</span><span>ChromaDB</span><span>LLM agents</span>
+</div></div>
+
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">The toolkit</span><h2>From commit to cluster, end to end.</h2></div>
+      <p>My skills grouped the way I use them on a platform team. Spin the toolchain, then pick a group to focus it.</p>
+    </div>
+    <div class="tool">
+      <div class="tool-cv"><canvas id="sphere" tabindex="0" role="img" aria-label="Interactive 3D sphere of tools: Azure, AKS, Kubernetes, Terraform, Ansible, Argo CD and more. Drag to rotate."></canvas></div>
+      <div class="tool-side">
+        <span class="eyebrow">Toolchain</span>
+        <h3>Drag to rotate.</h3>
+        <p>Every term sits on a sphere you can turn. Colours match the skill groups below.</p>
+        <div class="sph-read" aria-live="off"><b id="sphName">Hover a term</b><span id="sphGroup">Drag the sphere to turn it</span></div>
+        <ul class="sph-leg">
+          <li><i style="--c:#4cc3ff"></i>Platform</li><li><i style="--c:#2dd4bf"></i>Delivery</li><li><i style="--c:#ffc15a"></i>Automation</li><li><i style="--c:#a78bfa"></i>Operations</li><li><i style="--c:#3ce68c"></i>AI</li>
+        </ul>
+      </div>
+    </div>
+    <div class="skill-tabs" role="group" aria-label="Filter skills">
+      <button class="pill" data-f="all" aria-pressed="true">All</button>
+      <button class="pill" data-f="platform" aria-pressed="false">Platform</button>
+      <button class="pill" data-f="delivery" aria-pressed="false">Delivery</button>
+      <button class="pill" data-f="automation" aria-pressed="false">Automation</button>
+      <button class="pill" data-f="ops" aria-pressed="false">Operations</button>
+      <button class="pill" data-f="ai" aria-pressed="false">AI</button>
+    </div>
+    <div class="skill-grid" id="skillGrid">
+      <article class="skill-card" data-g="platform"><h3><svg class="i"><use href="#i-cloud"/></svg>Cloud platforms</h3><div class="sub">Microsoft Azure</div><div class="tags"><span>Azure</span><span>AKS</span><span>Azure networking</span><span>Key Vault</span><span>Workload identity</span></div></article>
+      <article class="skill-card" data-g="platform"><h3><svg class="i"><use href="#i-network"/></svg>Containers &amp; orchestration</h3><div class="sub">Run and package workloads</div><div class="tags"><span>Kubernetes (AKS)</span><span>Docker</span><span>Helm</span><span>Gateway API</span></div></article>
+      <article class="skill-card" data-g="delivery"><h3><svg class="i"><use href="#i-branch"/></svg>CI/CD &amp; version control</h3><div class="sub">GitOps delivery</div><div class="tags"><span>Azure DevOps</span><span>Argo CD</span><span>Git</span><span>Azure Repos</span><span>GitHub</span></div></article>
+      <article class="skill-card" data-g="automation"><h3><svg class="i"><use href="#i-blocks"/></svg>Infrastructure as code</h3><div class="sub">Automation</div><div class="tags"><span>Terraform</span><span>Ansible</span></div></article>
+      <article class="skill-card" data-g="delivery"><h3><svg class="i"><use href="#i-shield"/></svg>Build &amp; security</h3><div class="sub">Quality gates</div><div class="tags"><span>Maven</span><span>npm</span><span>SonarQube</span><span>Trivy</span></div></article>
+      <article class="skill-card" data-g="ops"><h3><svg class="i"><use href="#i-activity"/></svg>Monitoring &amp; observability</h3><div class="sub">See production clearly</div><div class="tags"><span>Azure Monitor</span><span>Prometheus</span><span>Grafana</span></div></article>
+      <article class="skill-card" data-g="ops"><h3><svg class="i"><use href="#i-layers"/></svg>Operating systems</h3><div class="sub">Linux administration</div><div class="tags"><span>Red Hat</span><span>Ubuntu</span><span>SUSE</span><span>Windows</span></div></article>
+      <article class="skill-card" data-g="automation"><h3><svg class="i"><use href="#i-code"/></svg>Scripting</h3><div class="sub">Glue for everything</div><div class="tags"><span>Python</span><span>Shell scripting</span></div></article>
+      <article class="skill-card" data-g="ops"><h3><svg class="i"><use href="#i-users"/></svg>Methodologies</h3><div class="sub">Working with teams</div><div class="tags"><span>Agile</span><span>Jira</span><span>ServiceNow</span></div></article>
+      <article class="skill-card full" data-g="ai"><h3><svg class="i"><use href="#i-cpu"/></svg>AI &amp; intelligent automation</h3><div class="sub">Agents, retrieval and tooling</div><div class="tags"><span>AI agent development</span><span>Kubernetes troubleshooting agent</span><span>Cursor AI</span><span>LLMs</span><span>MCP</span><span>RAG</span><span>ChromaDB</span></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="network" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Network lab</span><h2>Watch the traffic move.</h2></div>
+      <p>Seven illustrative diagrams, starting with the full platform map, of how requests, secrets, images and infrastructure changes travel through the platforms I run. Pick a view, then click a step.</p>
+    </div>
+    <div class="lab" id="lab">
+      <div class="lab-bar">
+        <div class="lab-tabs" id="labTabs" role="tablist" aria-label="Diagram views"></div>
+        <span class="lab-status"><span class="dot"></span>Live traffic · illustrative</span>
+      </div>
+      <div class="lab-body">
+        <div class="lab-view"><div class="lab-sticky">
+          <div class="dg-scroll"><svg class="dg" id="dg" role="img" aria-label="Network diagram" viewBox="0 0 600 420"></svg></div>
+          <div class="legend" id="legend"></div>
+          <div class="ctrl" id="ctrl" hidden>
+            <label for="cut">Cutover</label>
+            <input type="range" id="cut" min="0" max="100" step="5" value="50" aria-describedby="cutOut">
+            <output id="cutOut" for="cut"></output>
+          </div>
+        </div></div>
+        <aside class="lab-side" aria-live="polite">
+          <div><span class="eyebrow" id="labKicker"></span><h3 id="labTitle"></h3></div>
+          <p id="labDesc"></p>
+          <div class="steps" id="labSteps" role="list"></div>
+          <pre class="code" id="labCode" hidden></pre>
+          <div class="lab-note"><span class="dot" style="animation:none;width:6px;height:6px"></span><span id="labNote">Illustrative architecture, not live infrastructure.</span></div>
+        </aside>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ai" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">AI &amp; recent PoCs</span><h2>Agents that read the runbooks.</h2></div>
+      <p>Recent work applying LLMs to day-to-day platform operations: troubleshooting, cost visibility and knowledge retrieval.</p>
+    </div>
+    <div class="ai-grid">
+      <article class="ai-card">
+        <span class="state built">Built</span>
+        <h3>Kubernetes troubleshooting agent</h3>
+        <p>An AI-powered assistant built with Cursor AI, LLMs and MCP server integrations to support Kubernetes troubleshooting and cloud cost optimisation.</p>
+        <div class="tags"><span>Cursor AI</span><span>LLMs</span><span>MCP</span></div>
+      </article>
+      <article class="ai-card">
+        <span class="state dev">In development</span>
+        <h3>RAG ingestion pipeline</h3>
+        <p>A Python pipeline that extracts and chunks technical runbooks and PDFs, generates embeddings and indexes the knowledge in ChromaDB for context-aware retrieval.</p>
+        <div class="tags"><span>Python</span><span>Embeddings</span><span>ChromaDB</span></div>
+      </article>
+      <article class="ai-card">
+        <span class="state dev">Proof of concept</span>
+        <h3>Conversational memory with RAG</h3>
+        <p>A PoC that pulls in relevant chat history and technical knowledge to improve the accuracy of the assistant’s answers.</p>
+        <div class="tags"><span>RAG</span><span>Chat memory</span><span>LLMs</span></div>
+      </article>
+    </div>
+    <div class="ai-split">
+      <div class="panel">
+        <h4>How knowledge flows · illustrative</h4>
+        <div class="toggle" role="group" aria-label="Component set" style="margin-bottom:14px"><button type="button" data-rag="oss" aria-pressed="true">Today: ChromaDB</button><button type="button" data-rag="az" aria-pressed="false">On Azure</button></div>
+        <div class="dg-scroll"><svg class="dg" id="ragSvg" viewBox="0 0 560 270" role="img" aria-label="RAG flow: runbooks are chunked, embedded and indexed in ChromaDB; a question retrieves relevant chunks, which the LLM agent uses to produce an answer with context.">
+          <rect class="zone" x="0" y="4" width="560" height="118" rx="16"/><text class="zl" x="16" y="23">INGESTION · PYTHON</text>
+          <rect class="zone hub" x="0" y="164" width="560" height="102" rx="16"/><text class="zl" x="16" y="183">QUERY · AGENT</text>
+          <path class="wire" d="M120 62 H150 M260 62 H290 M400 62 H430"/>
+          <path class="wire" d="M120 222 H150 M260 222 H290 M400 222 H430"/>
+          <path class="wire" d="M485 94 V142 H205 V190"/>
+          <text class="lbl" x="345" y="134" text-anchor="middle">relevant chunks + chat history</text>
+          <g id="ragPk"></g>
+          <g class="g"><rect class="box" x="10" y="30" width="110" height="64" rx="12"/><use class="ic" href="#i-layers" x="22" y="40" width="17" height="17"/><text class="t" x="22" y="73">Runbooks</text><text class="s" x="22" y="87">PDFS · DOCS</text></g>
+          <g class="g"><rect class="box" x="150" y="30" width="110" height="64" rx="12"/><use class="ic" href="#i-code" x="162" y="40" width="17" height="17"/><text class="t" x="162" y="73">Chunk</text><text class="s" x="162" y="87">SPLIT TEXT</text></g>
+          <g class="g"><rect class="box" x="290" y="30" width="110" height="64" rx="12"/><use class="ic" href="#i-cpu" x="302" y="40" width="17" height="17"/><text class="t" x="302" y="73">Embed</text><text class="s" x="302" y="87">VECTORS</text></g>
+          <g class="g on"><rect class="box" x="430" y="30" width="110" height="64" rx="12"/><use class="ic" href="#i-db" x="442" y="40" width="17" height="17"/><text class="t" x="442" y="73">ChromaDB</text><text class="s" x="442" y="87">VECTOR INDEX</text></g>
+          <g class="g"><rect class="box" x="10" y="190" width="110" height="64" rx="12"/><use class="ic" href="#i-terminal" x="22" y="200" width="17" height="17"/><text class="t" x="22" y="233">Question</text><text class="s" x="22" y="247">OPERATOR</text></g>
+          <g class="g"><rect class="box" x="150" y="190" width="110" height="64" rx="12"/><use class="ic" href="#i-db" x="162" y="200" width="17" height="17"/><text class="t" x="162" y="233">Retrieve</text><text class="s" x="162" y="247">TOP MATCHES</text></g>
+          <g class="g on"><rect class="box" x="290" y="190" width="110" height="64" rx="12"/><use class="ic" href="#i-cpu" x="302" y="200" width="17" height="17"/><text class="t" x="302" y="233">LLM agent</text><text class="s" x="302" y="247">MCP TOOLS</text></g>
+          <g class="g"><rect class="box" x="430" y="190" width="110" height="64" rx="12"/><use class="ic" href="#i-check" x="442" y="200" width="17" height="17"/><text class="t" x="442" y="233">Answer</text><text class="s" x="442" y="247">WITH CONTEXT</text></g>
+        </svg></div>
+        <div class="legend"><span><i style="background:var(--amber);box-shadow:0 0 8px var(--amber)"></i>Ingest</span><span><i style="background:var(--teal);box-shadow:0 0 8px var(--teal)"></i>Retrieve</span><span><i style="background:var(--azure);box-shadow:0 0 8px var(--azure)"></i>Ask</span></div>
+        <div class="azmap" id="azMap" aria-live="polite"></div>
+        <p id="azNote" style="margin-top:10px;font-size:13px;color:var(--dim)"></p>
+      </div>
+      <div class="panel">
+        <h4>Troubleshooting agent · illustrative session</h4>
+        <div class="term" aria-label="Example conversation with the Kubernetes troubleshooting agent">
+          <div class="term-top"><i></i><i></i><i></i><span>k8s-agent</span></div>
+          <div class="term-body" id="termBody"></div>
+        </div>
+        <p style="margin-top:12px;font-size:13px;color:var(--dim)">Example text written for this page, not output from a real cluster.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="work" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Experience</span><h2>Experience in production.</h2></div>
+      <p>Two roles, both running Kubernetes for enterprise clients.</p>
+    </div>
+    <div class="stats stats-wrap" aria-label="Highlights">
+      <div class="stat"><b>5<em>+</em></b><span>years in DevOps and cloud infrastructure</span></div>
+      <div class="stat"><b>25<em>+</em></b><span>CNF configuration use cases automated with Ansible</span></div>
+      <div class="stat"><b>~70<em>%</em></b><span>manual effort cut by reusable automation workflows</span></div>
+      <div class="stat"><b>0</b><span>planned downtime on the Ingress to Gateway API migration</span></div>
+    </div>
+    <div class="jobs">
+      <article class="job">
+        <div class="when">Jul 2025 — Present<strong>Infinite Computer Solutions</strong></div>
+        <div>
+          <span class="eyebrow">Client: Nokia</span>
+          <h3>Senior DevOps Engineer</h3>
+          <p>Running production AKS platforms and turning operational procedures into reusable automation.</p>
+          <ul>
+            <li><b>Administered production AKS clusters:</b> upgrades, node pools, application onboarding, cost optimisation and lifecycle management.</li>
+            <li><b>Monitored and troubleshot</b> workloads with Azure Monitor, Azure Managed Prometheus and Grafana, across pods, deployments, networking, storage and ingress.</li>
+            <li><b>Released with Helm and Azure DevOps:</b> chart customisation, upgrades and rollbacks, plus CI pipelines for build, test, security scanning and image creation.</li>
+            <li><b>GitOps and IaC:</b> Argo CD for version-controlled continuous deployment, and reusable Terraform modules for AKS and networking.</li>
+            <li><b>Migrated Ingress to Gateway API</b> with HTTPRoute, including routing validation and troubleshooting, without planned downtime.</li>
+            <li><b>Secured secrets</b> by integrating Azure Key Vault with AKS using the OIDC issuer, workload identity, a federated credential and the Secrets Store CSI driver, so pods read secrets as mounted files.</li>
+            <li><b>Automated the Kubernetes lifecycle</b> (validation, deploy, upgrade, rollback, verification, health checks) with Ansible roles, Python and Shell, cutting manual effort by about 70%.</li>
+            <li><b>Built an AI assistant</b> with Cursor AI, LLMs and MCP for troubleshooting and cost optimisation, and now developing a RAG ingestion pipeline and a conversational-memory PoC.</li>
+          </ul>
+          <div class="award"><svg class="i"><use href="#i-award"/></svg><span><strong style="color:var(--ink)">Spot Award, Best Performer of the Month (February 2026)</strong> for automating 25+ Kubernetes-based CNF configuration use cases with Ansible.</span></div>
+        </div>
+      </article>
+      <article class="job">
+        <div class="when">Dec 2021 — Jul 2025<strong>HCL Technologies</strong></div>
+        <div>
+          <span class="eyebrow">Client: Chubb Insurance</span>
+          <h3>DevOps Engineer</h3>
+          <p>Kubernetes platform support, CI/CD and Linux automation for an insurance client.</p>
+          <ul>
+            <li><b>Managed Kubernetes environments:</b> application deployments, workload troubleshooting and platform stability.</li>
+            <li><b>Built and maintained CI/CD pipelines</b> for application build, testing and deployment.</li>
+            <li><b>Automated with Ansible:</b> server provisioning, configuration management and routine tasks.</li>
+            <li><b>Provisioned cloud infrastructure as code,</b> improving deployment consistency and reducing manual effort.</li>
+            <li><b>Administered Linux servers:</b> patching, user management and performance monitoring, with shell scripts for day-to-day tasks.</li>
+            <li><b>Supported releases</b> with development and QA teams, plus production support, incident resolution, RCA and change management in Agile teams.</li>
+          </ul>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="credentials" style="padding-top:24px">
+  <div class="wrap">
+    <div class="section-head">
+      <div><span class="eyebrow">Credentials</span><h2>Experience, with credentials.</h2></div>
+      <p>Hands-on expertise backed by industry certifications and training.</p>
+    </div>
+    <div class="certs">
+      <div class="cert"><div class="mk"><svg class="i" style="width:26px;height:26px"><use href="#i-network"/></svg></div><div><span class="eyebrow">Linux Foundation · CNCF</span><h3>Certified Kubernetes Administrator</h3><p>CKA · 2026</p></div></div>
+      <div class="cert"><div class="mk"><svg class="i" style="width:26px;height:26px"><use href="#i-cloud"/></svg></div><div><span class="eyebrow">Microsoft</span><h3>Azure Fundamentals</h3><p>AZ-900 · 2026</p></div></div>
+      <div class="cert"><div class="mk"><svg class="i" style="width:26px;height:26px"><use href="#i-blocks"/></svg></div><div><span class="eyebrow">Red Hat</span><h3>Ansible Automation Workshop</h3><p>Training · 2024</p></div></div>
+    </div>
+    <div class="edu"><span><svg class="i" style="display:inline;vertical-align:-3px;margin-right:8px;color:var(--azure)"><use href="#i-grad"/></svg><strong>B.E. (Bachelor of Engineering)</strong> · Roever Engineering College, Perambalur, Tamil Nadu, India</span><span class="mono" style="font-size:13px">2017 – 2021 · CGPA 7.89/10</span></div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <span class="eyebrow"><span class="dot" style="display:inline-block;vertical-align:middle;margin-right:10px"></span>Ready for the next challenge</span>
+      <h2>Your next DevOps engineer? <span>Let’s connect the dots.</span></h2>
+      <p class="lead">I’m open to DevOps, cloud infrastructure and Kubernetes-focused roles where I can build, automate and help teams ship with confidence.</p>
+      <div style="margin-top:30px"><a class="btn primary" href="mailto:namachozhan.narayanasamy@gmail.com">Let’s talk opportunities <svg class="i"><use href="#i-up-right"/></svg></a></div>
+    </div>
+    <div class="links">
+      <div class="link"><svg class="i" style="width:22px;height:22px"><use href="#i-mail"/></svg><a href="mailto:namachozhan.narayanasamy@gmail.com" style="min-width:0"><span>Email me<small>namachozhan.narayanasamy@<wbr>gmail.com</small></span></a><button class="copy" type="button" data-copy="namachozhan.narayanasamy@gmail.com">COPY</button></div>
+      <div class="link"><svg class="i" style="width:22px;height:22px"><use href="#i-phone"/></svg><a href="tel:+971567377360" style="min-width:0"><span>Call me<small>+971 56 737 7360</small></span></a><button class="copy" type="button" data-copy="+971 56 737 7360">COPY</button></div>
+      <a class="link" href="https://www.linkedin.com/in/namachozhan/" target="_blank" rel="noopener noreferrer"><svg class="i" style="width:22px;height:22px"><use href="#i-linkedin"/></svg><span>Connect on LinkedIn<small>linkedin.com/in/namachozhan</small></span><svg class="i arr"><use href="#i-up-right"/></svg></a>
+      <a class="link" href="assets/Namachozhan_N_Resume.pdf" target="_blank" rel="noopener"><svg class="i" style="width:22px;height:22px"><use href="#i-download"/></svg><span>Get my résumé<small>Experience at a glance · PDF</small></span><svg class="i arr"><use href="#i-up-right"/></svg></a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a class="wordmark" href="#about" style="font-size:18px"><span>namachozhan<i>.</i></span></a>
+    <span>Thoughtfully built. Continuously improving.</span>
+    <span class="mono" style="font-size:13px">Dubai, UAE · +971 56 737 7360</span>
+    <a href="#about" style="color:var(--muted)">Back to top ↑</a>
+  </div>
+</footer>
+
+<script>
+/* Diagram specs for the network lab. Coordinates are SVG user units (viewBox). */
+window.LAB_TABS = [
+  {
+    key: 'hub', name: 'Hub & spoke', kicker: 'Azure networking', vb: [600, 420],
+    title: 'Hub and spoke on Azure',
+    desc: 'Shared network services live in one hub VNet. Each workload gets its own peered spoke, so every flow passes one inspection point.',
+    caption: 'Hub and spoke topology: internet traffic enters the hub firewall, then peers to the AKS spoke; on-prem traffic arrives over a VPN or ExpressRoute gateway.',
+    legend: [['azure', 'Internet request'], ['teal', 'On-prem private traffic']],
+    zones: [
+      { x: 120, y: 116, w: 360, h: 130, l: 'HUB VNET', hub: 1 },
+      { x: 24, y: 300, w: 268, h: 112, l: 'SPOKE · AKS' },
+      { x: 308, y: 300, w: 268, h: 112, l: 'SPOKE · SHARED SERVICES' }
+    ],
+    nodes: [
+      { id: 'internet', x: 230, y: 0, w: 140, i: 'cloud', t: 'Internet', s: 'USERS · CLIENTS' },
+      { id: 'fw', x: 140, y: 156, w: 140, i: 'shield', t: 'Azure Firewall', s: 'INSPECT · ROUTE' },
+      { id: 'gw', x: 320, y: 156, w: 140, i: 'lock', t: 'VPN / ER gateway', s: 'ON-PREM LINK' },
+      { id: 'onprem', x: 500, y: 156, w: 88, i: 'server', t: 'On-prem', s: 'DATACENTER' },
+      { id: 'gwapi', x: 44, y: 334, w: 100, i: 'branch', t: 'Gateway API', s: 'ROUTES' },
+      { id: 'aks', x: 172, y: 334, w: 100, i: 'network', t: 'AKS', s: 'WORKLOADS' },
+      { id: 'kv', x: 324, y: 334, w: 100, i: 'lock', t: 'Key Vault', s: 'SECRETS' },
+      { id: 'mon', x: 452, y: 334, w: 100, i: 'activity', t: 'Monitoring', s: 'AZURE MONITOR' }
+    ],
+    wires: [
+      { d: 'M300 64 V100 H210 V156', l: [312, 92, 'inbound 443', 'start'] },
+      { d: 'M280 188 H320' },
+      { d: 'M460 188 H500', l: [480, 178, 'VPN'] },
+      { d: 'M210 220 V262 H94 V334', l: [152, 254, 'peering'] },
+      { d: 'M210 262 H374 V334', l: [292, 254, 'peering'] },
+      { d: 'M144 366 H172' },
+      { d: 'M424 366 H452', dash: 1 }
+    ],
+    flows: [
+      { d: 'M300 64 V100 H210 V262 H94 V366 H222', c: 'azure', n: 5, sp: 90 },
+      { d: 'M544 188 H210 V262 H374 V366', c: 'teal', n: 4, sp: 80 }
+    ],
+    steps: [
+      { t: 'Traffic enters the hub', b: 'Public traffic reaches one entry point instead of every workload.', ids: ['internet', 'fw'] },
+      { t: 'Firewall inspects and routes', b: 'Rules and routes decide which spoke may be reached.', ids: ['fw'] },
+      { t: 'Peering carries it to the AKS spoke', b: 'Each spoke VNet is peered to the hub, so workloads stay isolated from one another.', ids: ['fw', 'gwapi'] },
+      { t: 'Gateway API hands off to pods', b: 'Inside the cluster, routes send the request to the right service.', ids: ['gwapi', 'aks'] },
+      { t: 'On-prem joins over VPN or ExpressRoute', b: 'Private traffic arrives through the gateway and follows the same inspection path to shared services.', ids: ['onprem', 'gw', 'fw', 'kv'] }
+    ]
+  },
+  {
+    key: 'request', name: 'Internet → AKS', kicker: 'Request path', vb: [600, 340],
+    title: 'One request, from browser to pod',
+    desc: 'Follow a single HTTPS request across DNS, the public load balancer, the in-cluster gateway and the service that picks a healthy pod.',
+    caption: 'Request path: the browser resolves DNS, connects to the public load balancer, which forwards to gateway pods inside AKS, then a Service and application pods.',
+    legend: [['amber', 'DNS lookup'], ['teal', 'DNS answer'], ['azure', 'HTTPS request']],
+    zones: [{ x: 20, y: 206, w: 560, h: 124, l: 'AKS CLUSTER', hub: 1 }],
+    nodes: [
+      { id: 'dns', x: 230, y: 0, w: 140, i: 'network', t: 'DNS', s: 'NAME TO IP' },
+      { id: 'client', x: 20, y: 110, w: 140, i: 'terminal', t: 'Browser', s: 'HTTPS REQUEST' },
+      { id: 'lb', x: 440, y: 110, w: 140, i: 'layers', t: 'Load balancer', s: 'PUBLIC IP · L4' },
+      { id: 'gw', x: 440, y: 246, w: 140, i: 'branch', t: 'Gateway pods', s: 'ROUTE BY HOST' },
+      { id: 'svc', x: 230, y: 246, w: 140, i: 'blocks', t: 'Service', s: 'CLUSTERIP' },
+      { id: 'pods', x: 20, y: 246, w: 140, i: 'cpu', t: 'App pods', s: 'HEALTHY REPLICAS' }
+    ],
+    wires: [
+      { d: 'M96 110 V32 H230', dash: 1, l: [163, 24, 'resolve'] },
+      { d: 'M230 46 H114 V110', dash: 1 },
+      { d: 'M160 142 H440', l: [300, 134, 'HTTPS · 443'] },
+      { d: 'M510 174 V246', l: [522, 196, 'L4 balance', 'start'] },
+      { d: 'M440 278 H370', l: [405, 270, 'match route'] },
+      { d: 'M230 278 H160', l: [195, 270, 'ClusterIP'] }
+    ],
+    flows: [
+      { d: 'M96 110 V32 H230', c: 'amber', n: 2, sp: 70 },
+      { d: 'M230 46 H114 V110', c: 'teal', n: 2, sp: 70 },
+      { d: 'M160 142 H510 V278 H90', c: 'azure', n: 6, sp: 100 }
+    ],
+    steps: [
+      { t: 'DNS resolves the hostname', b: 'The browser asks DNS for the app’s name and gets the public IP back.', ids: ['dns', 'client'] },
+      { t: 'Browser opens HTTPS to the load balancer', b: 'TLS is negotiated against the public entry point.', ids: ['client', 'lb'] },
+      { t: 'Load balancer picks a gateway pod', b: 'Layer 4 balancing spreads connections across the gateway replicas.', ids: ['lb', 'gw'] },
+      { t: 'Gateway matches a route', b: 'Host and path rules choose the backend Service.', ids: ['gw', 'svc'] },
+      { t: 'Service picks a healthy pod', b: 'Only pods passing readiness checks receive the request.', ids: ['svc', 'pods'] }
+    ]
+  },
+  {
+    key: 'gateway', name: 'Gateway API', kicker: 'Routing migration', vb: [640, 380],
+    title: 'Ingress to Gateway API, without planned downtime',
+    desc: 'Both paths share the same load balancer and backends, so traffic can move across gradually. Drag the slider to run the cutover.',
+    caption: 'Two parallel routing paths to the same Service: the legacy Ingress path and the Gateway API path with an HTTPRoute. A slider shifts traffic between them.',
+    legend: [['amber', 'Via Ingress'], ['azure', 'Via Gateway + HTTPRoute']],
+    zones: [
+      { x: 240, y: 24, w: 376, h: 108, l: 'BEFORE · INGRESS' },
+      { x: 240, y: 244, w: 376, h: 108, l: 'AFTER · GATEWAY API', hub: 1 }
+    ],
+    nodes: [
+      { id: 'client', x: 10, y: 158, w: 96, i: 'terminal', t: 'Client', s: 'REQUEST' },
+      { id: 'lb', x: 134, y: 158, w: 96, i: 'layers', t: 'Public LB', s: 'PUBLIC IP' },
+      { id: 'ing', x: 258, y: 52, w: 96, i: 'layers', t: 'Ingress', s: 'ANNOTATIONS' },
+      { id: 'gwy', x: 258, y: 272, w: 96, i: 'network', t: 'Gateway', s: 'LISTENERS' },
+      { id: 'route', x: 382, y: 272, w: 96, i: 'branch', t: 'HTTPRoute', s: 'HOST · PATH' },
+      { id: 'svc', x: 506, y: 158, w: 96, i: 'blocks', t: 'Service', s: 'THEN PODS' }
+    ],
+    wires: [
+      { d: 'M106 190 H134' },
+      { d: 'M230 190 H244 V84 H258' },
+      { d: 'M230 190 H244 V304 H258' },
+      { d: 'M354 84 H554 V158', l: [462, 76, 'rules + annotations'] },
+      { d: 'M354 304 H382' },
+      { d: 'M478 304 H554 V222', l: [516, 296, 'backendRefs'] }
+    ],
+    flows: [
+      { d: 'M58 190 H244 V84 H554 V190', c: 'amber', n: 8, sp: 110, share: 'ing' },
+      { d: 'M58 190 H244 V304 H554 V190', c: 'azure', n: 8, sp: 110, share: 'gw' }
+    ],
+    steps: [
+      { t: 'Clients keep the same entry point', b: 'Both paths sit behind the same load balancer, so users see no change.', ids: ['client', 'lb'] },
+      { t: 'Ingress: one object does everything', b: 'Routing rules and controller-specific annotations live in a single resource.', ids: ['ing'] },
+      { t: 'Gateway API splits the roles', b: 'Platform teams own the Gateway. Application teams attach HTTPRoutes to it.', ids: ['gwy', 'route'] },
+      { t: 'Shift traffic in steps, then retire Ingress', b: 'Validate each HTTPRoute, move weight across, and remove the Ingress once nothing uses it.', ids: ['ing', 'gwy', 'route', 'svc'] }
+    ],
+    code: '<span class="k">apiVersion</span>: gateway.networking.k8s.io/v1\n<span class="k">kind</span>: <span class="v">HTTPRoute</span>\n<span class="k">metadata</span>:\n  <span class="k">name</span>: shop-route\n<span class="k">spec</span>:\n  <span class="k">parentRefs</span>:\n    - <span class="k">name</span>: public-gateway\n  <span class="k">hostnames</span>: [<span class="v">"shop.example.com"</span>]\n  <span class="k">rules</span>:\n    - <span class="k">backendRefs</span>:\n        - <span class="k">name</span>: shop-svc\n          <span class="k">port</span>: 80\n<span class="c"># generic example, not a real config</span>',
+    ctrl: true
+  }
+];
+
+/* Workflow diagrams: Key Vault via workload identity, application CI/CD, and the Terraform infra pipeline. */
+(function () {
+  var k = function (s) { return '<span class="k">' + s + '</span>'; }, v = function (s) { return '<span class="v">' + s + '</span>'; }, c = function (s) { return '<span class="c">' + s + '</span>'; };
+
+  window.LAB_TABS.push({
+    key: 'kv', name: 'Key Vault', kicker: 'Workload identity', vb: [680, 440],
+    title: 'Pod to Key Vault, with no stored credentials',
+    desc: 'A pod reads Azure Key Vault secrets as files. Nothing secret is kept in the cluster: Entra ID trusts the cluster’s own signed tokens.',
+    caption: 'Workload identity flow: the pod’s service account token is issued through the AKS OIDC issuer, validated by Entra ID against a federated credential, exchanged for an access token, and used by the Secrets Store CSI driver to read Key Vault and write the secrets into a mounted volume.',
+    legend: [['amber', 'Service account token'], ['violet', 'Federated credential check'], ['azure', 'Access token and request'], ['teal', 'Secrets']],
+    zones: [
+      { x: 10, y: 70, w: 404, h: 360, l: 'AKS CLUSTER · OIDC ISSUER + WORKLOAD IDENTITY', hub: 1 },
+      { x: 446, y: 70, w: 224, h: 360, l: 'AZURE' }
+    ],
+    nodes: [
+      { id: 'sa', x: 26, y: 104, w: 150, i: 'users', t: 'ServiceAccount', s: 'CLIENT-ID ANNOTATION' },
+      { id: 'spc', x: 226, y: 104, w: 170, i: 'layers', t: 'SecretProviderClass', s: 'VAULT · SECRET NAMES' },
+      { id: 'pod', x: 26, y: 214, w: 150, i: 'cpu', t: 'App pod', s: 'USES SERVICE ACCOUNT' },
+      { id: 'csi', x: 226, y: 214, w: 170, i: 'blocks', t: 'Secrets Store CSI', s: 'SYSTEM-LEVEL PODS' },
+      { id: 'mount', x: 26, y: 324, w: 150, i: 'db', t: 'Mounted secrets', s: 'FILES IN THE POD' },
+      { id: 'oidc', x: 226, y: 324, w: 170, i: 'lock', t: 'OIDC issuer', s: 'SIGNS SA TOKENS' },
+      { id: 'entra', x: 462, y: 104, w: 192, i: 'shield', t: 'Microsoft Entra ID', s: 'VALIDATES THE TOKEN' },
+      { id: 'uami', x: 462, y: 214, w: 192, i: 'users', t: 'Managed identity', s: 'FEDERATED CREDENTIAL' },
+      { id: 'kv', x: 462, y: 324, w: 192, i: 'lock', t: 'Azure Key Vault', s: 'RBAC · GET SECRETS' }
+    ],
+    wires: [
+      { d: 'M101 168 V214', l: [113, 196, 'runs as', 'start'] },
+      { d: 'M311 168 V214', l: [323, 196, 'config', 'start'] },
+      { d: 'M176 246 H226', dash: 1, l: [201, 238, 'mount'] },
+      { d: 'M101 278 V324', dash: 1, l: [113, 318, 'reads', 'start'] },
+      { d: 'M280 278 V300 H101', l: [190, 292, 'writes files'] },
+      { d: 'M311 324 V278', l: [323, 306, 'SA token', 'start'] },
+      { d: 'M396 230 H430 V136 H462' },
+      { d: 'M462 250 H396' },
+      { d: 'M396 270 H440 V356 H462' },
+      { d: 'M558 168 V214', l: [570, 196, 'validate', 'start'] }
+    ],
+    flows: [
+      { id: 'tok', d: 'M311 356 V230 H430 V136 H558', c: 'amber', n: 3, sp: 85 },
+      { id: 'val', d: 'M558 136 V246', c: 'violet', n: 2, sp: 60 },
+      { id: 'acc', d: 'M558 250 H340', c: 'azure', n: 3, sp: 80 },
+      { id: 'kvreq', d: 'M340 270 H440 V356 H558', c: 'azure', n: 3, sp: 85 },
+      { id: 'kvres', d: 'M558 356 H440 V270 H340', c: 'teal', n: 3, sp: 85 },
+      { id: 'wr', d: 'M280 250 V300 H101 V356', c: 'teal', n: 4, sp: 70 }
+    ],
+    steps: [
+      { group: 'Setup', t: 'Enable OIDC issuer and workload identity', b: 'The cluster publishes an OIDC issuer and signs service account tokens with it.', ids: ['oidc'], flows: [],
+        code: 'az aks update -g &lt;rg&gt; -n &lt;aks&gt; \\\n  ' + k('--enable-oidc-issuer') + ' \\\n  ' + k('--enable-workload-identity') },
+      { t: 'Create a managed identity with a federated credential', b: 'A user-assigned managed identity trusts one service account from this cluster’s issuer.', ids: ['uami'], flows: [],
+        code: 'az identity federated-credential create \\\n  --name aks-app --identity-name &lt;uami&gt; -g &lt;rg&gt; \\\n  ' + k('--issuer') + ' "$AKS_OIDC_ISSUER" \\\n  ' + k('--subject') + ' ' + v('system:serviceaccount:&lt;ns&gt;:&lt;sa&gt;') + ' \\\n  ' + k('--audiences') + ' ' + v('api://AzureADTokenExchange') },
+      { t: 'Give the identity access to Key Vault', b: 'Assign a role that lets the identity read secrets from the vault.', ids: ['uami', 'kv'], flows: [],
+        code: 'az role assignment create \\\n  --assignee &lt;uami-client-id&gt; \\\n  ' + k('--role') + ' ' + v('"Key Vault Secrets User"') + ' \\\n  --scope &lt;key-vault-id&gt;' },
+      { t: 'Run the Secrets Store CSI driver as system pods', b: 'The driver and its Azure provider run as system-level pods in kube-system.', ids: ['csi'], flows: [] },
+      { t: 'Create the SecretProviderClass', b: 'It names the vault, the tenant, the identity’s client ID and the secrets to fetch.', ids: ['spc', 'kv'], flows: [],
+        code: k('kind') + ': ' + v('SecretProviderClass') + '\n' + k('spec') + ':\n  ' + k('provider') + ': azure\n  ' + k('parameters') + ':\n    ' + k('clientID') + ': &lt;uami-client-id&gt;\n    ' + k('keyvaultName') + ': &lt;vault&gt;\n    ' + k('tenantId') + ': &lt;tenant&gt;\n    ' + k('objects') + ': |\n      array:\n        - |\n          objectName: db-password\n          objectType: secret\n' + c('# generic example') },
+      { t: 'Annotate the ServiceAccount and attach it to the pod', b: 'The service account carries the identity’s client ID. The pod runs as it and mounts the CSI volume.', ids: ['sa', 'pod', 'spc', 'mount'], flows: [],
+        code: k('kind') + ': ' + v('ServiceAccount') + '\n' + k('metadata') + ':\n  ' + k('annotations') + ':\n    ' + k('azure.workload.identity/client-id') + ': &lt;uami-client-id&gt;\n' + c('# pod template') + '\n' + k('labels') + ': { azure.workload.identity/use: "true" }\n' + k('serviceAccountName') + ': app-sa\n' + k('volumes') + ':\n  - csi:\n      driver: secrets-store.csi.k8s.io\n      volumeAttributes:\n        secretProviderClass: app-kv' },
+      { group: 'At runtime', t: 'Pod gets a signed token', b: 'Kubernetes issues a service account token for the pod, vouched for by the cluster’s OIDC issuer.', ids: ['pod', 'csi', 'oidc'], flows: ['tok'] },
+      { t: 'Entra ID validates it', b: 'Entra ID checks the token’s issuer, subject and audience against the federated credential.', ids: ['entra', 'uami'], flows: ['tok', 'val'] },
+      { t: 'Entra ID issues an access token', b: 'If the check passes, Entra ID returns an access token for the managed identity to the CSI driver.', ids: ['uami', 'csi'], flows: ['acc'] },
+      { t: 'CSI driver reads Key Vault', b: 'The driver presents the access token. The identity’s role on the vault allows the read.', ids: ['csi', 'kv'], flows: ['kvreq', 'kvres'] },
+      { t: 'Secrets land in the mounted volume', b: 'The driver writes the secret files into the volume. The pod reads them from its mount path.', ids: ['csi', 'mount', 'pod'], flows: ['wr'] }
+    ]
+  });
+
+  window.LAB_TABS.push({
+    key: 'cicd', name: 'App CI/CD', kicker: 'Application delivery', vb: [680, 380],
+    title: 'Azure DevOps CI, Argo CD for delivery',
+    desc: 'Azure DevOps builds, tests, scans and publishes the image. A Python script records the new tag in the GitOps repo, and Argo CD reconciles AKS to match.',
+    caption: 'Application pipeline: git checkout, compile, unit tests, SonarQube, multi-stage Docker build, Trivy scan and push to ACR in Azure DevOps; then a Python script updates the GitOps repository and Argo CD reconciles the AKS cluster.',
+    legend: [['amber', 'CI run and image tag'], ['teal', 'Argo CD reconcile']],
+    zones: [
+      { x: 0, y: 4, w: 680, h: 230, l: 'AZURE DEVOPS · CI PIPELINE' },
+      { x: 0, y: 262, w: 680, h: 112, l: 'GITOPS · CD WITH ARGO CD', hub: 1 }
+    ],
+    nodes: [
+      { id: 'co', x: 20, y: 34, w: 120, i: 'branch', t: 'Git checkout', s: 'SOURCE' },
+      { id: 'build', x: 196, y: 34, w: 120, i: 'code', t: 'Compile', s: 'BUILD' },
+      { id: 'test', x: 372, y: 34, w: 120, i: 'check', t: 'Unit tests', s: 'VERIFY' },
+      { id: 'sonar', x: 548, y: 34, w: 120, i: 'activity', t: 'SonarQube', s: 'CODE ANALYSIS' },
+      { id: 'docker', x: 548, y: 150, w: 120, i: 'blocks', t: 'Docker build', s: 'MULTI-STAGE' },
+      { id: 'trivy', x: 372, y: 150, w: 120, i: 'shield', t: 'Trivy scan', s: 'IMAGE SECURITY' },
+      { id: 'acr', x: 196, y: 150, w: 120, i: 'db', t: 'Push to ACR', s: 'TAGGED IMAGE' },
+      { id: 'py', x: 20, y: 150, w: 120, i: 'terminal', t: 'Python script', s: 'UPDATES TAG' },
+      { id: 'repo', x: 20, y: 292, w: 120, i: 'branch', t: 'GitOps repo', s: 'IMAGE TAG' },
+      { id: 'argo', x: 196, y: 292, w: 120, i: 'layers', t: 'Argo CD', s: 'DETECTS DRIFT' },
+      { id: 'aks', x: 372, y: 292, w: 120, i: 'network', t: 'AKS', s: 'RECONCILED' }
+    ],
+    wires: [
+      { d: 'M140 66 H196' }, { d: 'M316 66 H372' }, { d: 'M492 66 H548' },
+      { d: 'M608 98 V150' },
+      { d: 'M548 182 H492' }, { d: 'M372 182 H316' }, { d: 'M196 182 H140' },
+      { d: 'M80 214 V292', l: [92, 250, 'commit new tag', 'start'] },
+      { d: 'M140 324 H196', l: [168, 316, 'watch'] },
+      { d: 'M316 324 H372', l: [344, 316, 'sync'] }
+    ],
+    flows: [
+      { id: 'ci', d: 'M80 66 H608 V182 H80 V324', c: 'amber', n: 6, sp: 100 },
+      { id: 'cd', d: 'M80 324 H432', c: 'teal', n: 3, sp: 75 }
+    ],
+    steps: [
+      { group: 'CI · Azure DevOps', t: 'Git checkout', b: 'The pipeline pulls the commit that triggered the run.', ids: ['co'], flows: ['ci'] },
+      { t: 'Compile', b: 'The application is built from source.', ids: ['build'], flows: ['ci'] },
+      { t: 'Unit tests', b: 'Tests run before anything is packaged.', ids: ['test'], flows: ['ci'] },
+      { t: 'SonarQube analysis', b: 'Static analysis checks code quality and flags issues early.', ids: ['sonar'], flows: ['ci'] },
+      { t: 'Multi-stage Docker build', b: 'Build stages compile the app. The final stage ships only what is needed to run it.', ids: ['docker'], flows: ['ci'] },
+      { t: 'Trivy image scan', b: 'The image is scanned for known vulnerabilities before it is published.', ids: ['trivy'], flows: ['ci'] },
+      { t: 'Push to ACR', b: 'The scanned image is pushed to the container registry with a version tag.', ids: ['acr'], flows: ['ci'] },
+      { group: 'Hand-off · GitOps', t: 'Python script updates the GitOps repo', b: 'A script writes the new image name or tag into the GitOps repository.', ids: ['py', 'repo'], flows: ['ci'] },
+      { t: 'Argo CD reconciles AKS', b: 'Argo CD detects the drift between Git and the cluster, then reconciles AKS to match.', ids: ['repo', 'argo', 'aks'], flows: ['cd'] }
+    ]
+  });
+
+  window.LAB_TABS.push({
+    key: 'infra', name: 'Infra pipeline', kicker: 'Terraform delivery', vb: [680, 280],
+    title: 'Plan in CI, approve, then apply in CD',
+    desc: 'The CI pipeline produces one reviewed plan file. The CD pipeline waits for a person to approve it, then applies exactly that plan.',
+    caption: 'Infrastructure pipeline: terraform init, validate and plan -out in CI; the zipped plan is published as an artifact that triggers a CD pipeline, which waits for manual approval and then runs terraform apply -auto-approve.',
+    legend: [['amber', 'Plan and artifact'], ['teal', 'Apply after approval']],
+    zones: [
+      { x: 0, y: 4, w: 680, h: 116, l: 'AZURE DEVOPS · CI PIPELINE' },
+      { x: 0, y: 150, w: 680, h: 116, l: 'AZURE DEVOPS · CD PIPELINE', hub: 1 }
+    ],
+    nodes: [
+      { id: 'init', x: 20, y: 34, w: 120, i: 'terminal', t: 'terraform init', s: 'PROVIDERS' },
+      { id: 'validate', x: 196, y: 34, w: 120, i: 'check', t: 'validate', s: 'SYNTAX CHECK' },
+      { id: 'plan', x: 372, y: 34, w: 120, i: 'layers', t: 'plan -out', s: 'WRITES TFPLAN' },
+      { id: 'archive', x: 548, y: 34, w: 120, i: 'db', t: 'Archive', s: 'ZIP ARTIFACT' },
+      { id: 'trigger', x: 548, y: 180, w: 120, i: 'branch', t: 'Triggered', s: 'NEW ARTIFACT' },
+      { id: 'gate', x: 372, y: 180, w: 120, i: 'shield', t: 'Approval', s: 'MANUAL REVIEW', gate: 1, pulse: 1 },
+      { id: 'apply', x: 196, y: 180, w: 120, i: 'terminal', t: 'Apply', s: 'AUTO-APPROVE' },
+      { id: 'azure', x: 20, y: 180, w: 120, i: 'cloud', t: 'Azure', s: 'INFRA UPDATED' }
+    ],
+    wires: [
+      { d: 'M140 66 H196' }, { d: 'M316 66 H372' }, { d: 'M492 66 H548', l: [520, 58, 'zip'] },
+      { d: 'M608 98 V180', l: [620, 142, 'publish', 'start'] },
+      { d: 'M548 212 H492' }, { d: 'M372 212 H316', l: [344, 204, 'approved'] }, { d: 'M196 212 H140' }
+    ],
+    flows: [
+      { id: 'plan', d: 'M80 66 H608 V212', c: 'amber', n: 5, sp: 95 },
+      { id: 'apply', d: 'M608 212 H80', c: 'teal', n: 4, sp: 80 }
+    ],
+    steps: [
+      { group: 'CI pipeline', t: 'terraform init', b: 'Downloads providers and connects to the state backend.', ids: ['init'], flows: ['plan'], code: 'terraform init' },
+      { t: 'terraform validate', b: 'Checks the configuration for syntax and internal consistency.', ids: ['validate'], flows: ['plan'], code: 'terraform validate' },
+      { t: 'terraform plan -out', b: 'Previews the changes and saves them to one plan file, so what is reviewed is exactly what runs.', ids: ['plan'], flows: ['plan'], code: 'terraform plan ' + k('-out=tfplan') },
+      { t: 'Review, zip and publish', b: 'Engineers can read the plan output. The plan file is zipped and published as a pipeline artifact.', ids: ['plan', 'archive'], flows: ['plan'] },
+      { group: 'CD pipeline', t: 'The artifact triggers CD', b: 'A new artifact starts the second pipeline automatically.', ids: ['archive', 'trigger'], flows: ['plan'] },
+      { t: 'Manual approval', b: 'The run waits at the gate. A reviewer checks the plan output one more time before approving.', ids: ['gate'], flows: [] },
+      { t: 'terraform apply -auto-approve', b: 'Once approved, the saved plan is applied without further prompts and the Azure infrastructure is updated.', ids: ['apply', 'azure'], flows: ['apply'], code: 'terraform apply ' + k('-auto-approve') + ' tfplan' }
+    ]
+  });
+})();
+
+/* Full-width platform map: delivery pipeline across the top, hub and spoke below, shared services on the right. Illustrative, not live. */
+window.LAB_TABS.unshift({
+  key: 'map', name: 'Platform map', kicker: 'End to end', vb: [1210, 530], wide: true,
+  title: 'The whole platform in one picture',
+  desc: 'Delivery runs across the top, user and on-prem traffic enter through the hub, and the AKS spoke reaches the shared services it depends on. Click a step to follow one path.',
+  caption: 'Platform map: an Azure DevOps pipeline pushes images to ACR and updates a GitOps repository, Argo CD syncs the AKS spoke, user and on-prem traffic enter through the hub firewall, and pods use workload identity to reach Key Vault.',
+  legend: [['azure', 'User request'], ['teal', 'On-prem private traffic'], ['violet', 'Delivery: image, tag, sync'], ['amber', 'Secrets and telemetry']],
+  zones: [
+    { x: 20, y: 16, w: 1170, h: 150, l: 'DELIVERY · AZURE DEVOPS TO ARGO CD' },
+    { x: 190, y: 196, w: 200, h: 220, l: 'HUB VNET', hub: 1 },
+    { x: 430, y: 196, w: 490, h: 310, l: 'SPOKE · AKS', hub: 1 },
+    { x: 960, y: 196, w: 230, h: 310, l: 'SHARED SERVICES' }
+  ],
+  nodes: [
+    { id: 'dev', x: 44, y: 64, w: 150, i: 'code', t: 'Developer', s: 'GIT PUSH' },
+    { id: 'ci', x: 244, y: 64, w: 150, i: 'cpu', t: 'Azure DevOps CI', s: 'BUILD · SCAN' },
+    { id: 'acr', x: 444, y: 64, w: 150, i: 'db', t: 'ACR', s: 'IMAGE REGISTRY' },
+    { id: 'script', x: 644, y: 64, w: 150, i: 'terminal', t: 'Python script', s: 'UPDATE IMAGE TAG' },
+    { id: 'gitops', x: 844, y: 64, w: 150, i: 'branch', t: 'GitOps repo', s: 'DESIRED STATE' },
+
+    { id: 'internet', x: 20, y: 236, w: 130, i: 'cloud', t: 'Internet', s: 'USERS · CLIENTS' },
+    { id: 'onprem', x: 20, y: 332, w: 130, i: 'server', t: 'On-prem', s: 'DATACENTER' },
+    { id: 'fw', x: 210, y: 236, w: 160, i: 'shield', t: 'Azure Firewall', s: 'INSPECT · ROUTE' },
+    { id: 'gw', x: 210, y: 332, w: 160, i: 'lock', t: 'VPN / ER gateway', s: 'ON-PREM LINK' },
+
+    { id: 'gwapi', x: 444, y: 236, w: 130, i: 'branch', t: 'Gateway API', s: 'HTTPROUTE' },
+    { id: 'app', x: 604, y: 236, w: 130, i: 'blocks', t: 'App pods', s: 'WORKLOADS' },
+    { id: 'argo', x: 764, y: 236, w: 130, i: 'layers', t: 'Argo CD', s: 'RECONCILES' },
+    { id: 'wid', x: 444, y: 332, w: 130, i: 'lock', t: 'Workload ID', s: 'FEDERATED' },
+    { id: 'csi', x: 604, y: 332, w: 130, i: 'lock', t: 'CSI driver', s: 'SECRETS STORE' },
+    { id: 'prom', x: 604, y: 428, w: 130, i: 'activity', t: 'Prometheus', s: 'METRICS' },
+
+    { id: 'entra', x: 980, y: 236, w: 190, i: 'users', t: 'Entra ID', s: 'VALIDATES TOKEN' },
+    { id: 'kv', x: 980, y: 332, w: 190, i: 'lock', t: 'Key Vault', s: 'SECRETS' },
+    { id: 'mon', x: 980, y: 428, w: 190, i: 'activity', t: 'Azure Monitor', s: 'LOGS · METRICS' }
+  ],
+  wires: [
+    { d: 'M194 96 H244' }, { d: 'M394 96 H444' }, { d: 'M594 96 H644' }, { d: 'M794 96 H844' },
+    { d: 'M519 128 V176 H669 V236', l: [594, 166, 'pull image'] },
+    { d: 'M880 128 V236', l: [892, 184, 'detects drift', 'start'] },
+    { d: 'M150 268 H210', l: [168, 260, 'HTTPS'] },
+    { d: 'M150 364 H210', l: [180, 356, 'VPN'] },
+    { d: 'M290 332 V300' },
+    { d: 'M370 268 H444', l: [407, 260, 'peering'] },
+    { d: 'M574 268 H604' },
+    { d: 'M764 268 H734' },
+    { d: 'M669 300 V332' },
+    { d: 'M574 364 H604' },
+    { d: 'M734 364 H940 V268 H980', l: [840, 356, 'token'] },
+    { d: 'M1075 300 V332' },
+    { d: 'M734 460 H980', dash: 1, l: [857, 452, 'metrics'] }
+  ],
+  flows: [
+    { id: 'ci', d: 'M119 96 H919', c: 'violet', n: 7, sp: 100 },
+    { id: 'pull', d: 'M519 96 V176 H669 V268', c: 'violet', n: 3, sp: 70 },
+    { id: 'git', d: 'M880 96 V268 H669', c: 'violet', n: 4, sp: 80 },
+    { id: 'web', d: 'M85 268 H669', c: 'azure', n: 7, sp: 110 },
+    { id: 'onp', d: 'M85 364 H290 V268 H509', c: 'teal', n: 4, sp: 80 },
+    { id: 'sec', d: 'M669 364 H940 V268 H1075 V364', c: 'amber', n: 4, sp: 80 },
+    { id: 'mon', d: 'M669 460 H1075', c: 'amber', n: 3, sp: 90 }
+  ],
+  steps: [
+    { t: 'Developers push, CI builds', b: 'A commit starts the Azure DevOps pipeline: build, test, scan, then push the image to ACR.', ids: ['dev', 'ci', 'acr'], flows: ['ci'] },
+    { t: 'A script updates the GitOps repo', b: 'A Python script writes the new image tag into the GitOps repository, which holds the desired state.', ids: ['acr', 'script', 'gitops'], flows: ['ci'] },
+    { t: 'Argo CD detects the drift', b: 'Argo CD notices the repo differs from the cluster, reconciles it, and the nodes pull the image from ACR.', ids: ['gitops', 'argo', 'app', 'acr'], flows: ['git', 'pull'] },
+    { t: 'Users enter through the hub', b: 'Public traffic passes the hub firewall, crosses the peering to the AKS spoke, and Gateway API routes it to the pods.', ids: ['internet', 'fw', 'gwapi', 'app'], flows: ['web'] },
+    { t: 'On-prem joins over VPN or ExpressRoute', b: 'Private traffic arrives at the gateway and follows the same inspection path into the spoke.', ids: ['onprem', 'gw', 'fw', 'gwapi'], flows: ['onp'] },
+    { t: 'Pods fetch secrets without passwords', b: 'The pod’s service account uses workload identity. Entra ID validates the token, then the CSI driver reads Key Vault.', ids: ['app', 'wid', 'csi', 'entra', 'kv'], flows: ['sec'] },
+    { t: 'Metrics flow to Azure Monitor', b: 'Prometheus collects cluster metrics and Azure Monitor keeps logs and metrics in one place.', ids: ['prom', 'mon'], flows: ['mon'] }
+  ]
+});
+
+/* Network lab engine: renders a diagram spec to SVG, animates packets along paths, drives the step list. */
+(function () {
+  var NS = 'http://www.w3.org/2000/svg';
+  var tabs = window.LAB_TABS, svg = document.getElementById('dg');
+  if (!tabs || !svg) return;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function (id) { return document.getElementById(id); };
+  var tabBar = $('labTabs'), stepsEl = $('labSteps'), ctrl = $('ctrl'), cut = $('cut'), cutOut = $('cutOut'), codeEl = $('labCode');
+  var cur = null, nodes = {}, packets = [], stepBtns = [], curFlows = null, step = -1, hold = 0, visible = false, share = { ing: 0.5, gw: 0.5 };
+
+  function el(name, attrs, parent) {
+    var e = document.createElementNS(NS, name);
+    for (var k in attrs) e.setAttribute(k, attrs[k]);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function txt(parent, cls, x, y, s, anchor) {
+    var t = el('text', { 'class': cls, x: x, y: y }, parent);
+    if (anchor) t.setAttribute('text-anchor', anchor);
+    t.textContent = s;
+    return t;
+  }
+
+  function render(tab) {
+    cur = tab; nodes = {}; packets = [];
+    $('lab').classList.toggle('wide', !!tab.wide);
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    svg.setAttribute('viewBox', '0 0 ' + tab.vb[0] + ' ' + tab.vb[1]);
+    svg.setAttribute('aria-label', tab.caption); svg.style.setProperty('--dgmin', Math.round(tab.vb[0] * 0.85) + 'px');
+    var gz = el('g', {}, svg), gw = el('g', {}, svg), gp = el('g', { 'class': 'pk' }, svg), gn = el('g', {}, svg);
+    tab.zones.forEach(function (z) {
+      el('rect', { 'class': 'zone' + (z.hub ? ' hub' : ''), x: z.x, y: z.y, width: z.w, height: z.h, rx: 16 }, gz);
+      txt(gz, 'zl', z.x + 16, z.y + 19, z.l);
+    });
+    tab.wires.forEach(function (w) {
+      el('path', { 'class': 'wire' + (w.dash ? ' dash' : ''), d: w.d }, gw);
+      if (w.l) txt(gw, 'lbl', w.l[0], w.l[1], w.l[2], w.l[3] || 'middle');
+    });
+    tab.nodes.forEach(function (n) {
+      var h = n.h || 64, g = el('g', { 'class': 'g', 'data-id': n.id }, gn);
+      if (n.pulse) el('rect', { 'class': 'ring-pulse', x: n.x - 3, y: n.y - 3, width: n.w + 6, height: h + 6, rx: 14 }, g);
+      el('rect', { 'class': 'box' + (n.gate ? ' gate' : ''), x: n.x, y: n.y, width: n.w, height: h, rx: 12 }, g);
+      var u = el('use', { 'class': 'ic', x: n.x + 12, y: n.y + 10, width: 17, height: 17 }, g);
+      u.setAttribute('href', '#i-' + n.i);
+      txt(g, 't', n.x + 12, n.y + 43, n.t);
+      txt(g, 's', n.x + 12, n.y + 57, n.s);
+      nodes[n.id] = g;
+    });
+    tab.flows.forEach(function (f) {
+      var p = el('path', { d: f.d, fill: 'none', stroke: 'none' }, gp);
+      var len = p.getTotalLength();
+      for (var i = 0; i < f.n; i++) {
+        var c = el('circle', { r: 3.4, 'class': 'pkt ' + (f.c === 'azure' ? '' : f.c), opacity: 0 }, gp);
+        packets.push({ f: f, p: p, c: c, len: len, i: i, phase: (i / f.n) * len });
+      }
+    });
+    legend(tab); sidebar(tab); setStep(0, true);
+    ctrl.hidden = !tab.ctrl;
+    if (tab.ctrl) updateCut();
+    draw(performance.now());
+  }
+
+  function legend(tab) {
+    var lg = $('legend'), map = { azure: 'var(--azure)', teal: 'var(--teal)', amber: 'var(--amber)', violet: 'var(--violet)' };
+    lg.innerHTML = '';
+    tab.legend.forEach(function (l) {
+      var s = document.createElement('span');
+      s.innerHTML = '<i style="background:' + map[l[0]] + ';box-shadow:0 0 8px ' + map[l[0]] + '"></i>' + l[1];
+      lg.appendChild(s);
+    });
+  }
+
+  function sidebar(tab) {
+    $('labKicker').textContent = tab.kicker; $('labTitle').textContent = tab.title; $('labDesc').textContent = tab.desc;
+    stepsEl.innerHTML = ''; stepBtns = [];
+    tab.steps.forEach(function (s, i) {
+      if (s.group) { var gh = document.createElement('div'); gh.className = 'step-group'; gh.textContent = s.group; stepsEl.appendChild(gh); }
+      var b = document.createElement('button');
+      b.className = 'step'; b.type = 'button'; b.setAttribute('role', 'listitem');
+      b.innerHTML = '<span><b></b><span></span></span>';
+      b.querySelector('b').textContent = s.t; b.querySelector('span span').textContent = s.b;
+      b.addEventListener('click', function () { hold = Date.now() + 14000; setStep(i); });
+      stepsEl.appendChild(b); stepBtns.push(b);
+    });
+  }
+
+  function setStep(i, quiet) {
+    step = i;
+    var st = cur.steps[i], ids = st.ids; curFlows = st.flows || null;
+    var code = st.code || cur.code; if (code) { codeEl.hidden = false; codeEl.innerHTML = code; } else { codeEl.hidden = true; }
+    Object.keys(nodes).forEach(function (id) {
+      var on = ids.indexOf(id) > -1;
+      nodes[id].classList.toggle('on', on); nodes[id].classList.toggle('faded', !on);
+    });
+    stepBtns.forEach(function (c, k) { c.classList.toggle('on', k === i); });
+  }
+
+  function buildTabs() {
+    tabs.forEach(function (t, i) {
+      var b = document.createElement('button');
+      b.className = 'pill'; b.type = 'button'; b.setAttribute('role', 'tab'); b.textContent = t.name;
+      b.setAttribute('aria-pressed', i === 0 ? 'true' : 'false'); b.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+      b.addEventListener('click', function () {
+        Array.prototype.forEach.call(tabBar.children, function (c) { c.setAttribute('aria-pressed', 'false'); c.setAttribute('aria-selected', 'false'); });
+        b.setAttribute('aria-pressed', 'true'); b.setAttribute('aria-selected', 'true');
+        hold = 0; render(t);
+      });
+      tabBar.appendChild(b);
+    });
+  }
+
+  function updateCut() {
+    var v = +cut.value; share.gw = v / 100; share.ing = 1 - v / 100;
+    cutOut.textContent = v === 0 ? '100% on Ingress' : v === 100 ? 'Cutover complete' : (100 - v) + '% Ingress · ' + v + '% Gateway';
+    cut.setAttribute('aria-valuetext', cutOut.textContent);
+  }
+  cut.addEventListener('input', updateCut);
+
+  function draw(now) {
+    var t = reduce ? 0 : now / 1000;
+    for (var k = 0; k < packets.length; k++) {
+      var pk = packets[k], f = pk.f, s = f.share ? share[f.share] : 1;
+      if ((pk.i + 0.5) / f.n > s || (curFlows && curFlows.indexOf(f.id) < 0)) { pk.c.setAttribute('opacity', 0); continue; }
+      var pos = (t * f.sp + pk.phase) % pk.len, pt = pk.p.getPointAtLength(pos);
+      var fade = Math.min(1, pos / 18, (pk.len - pos) / 18);
+      pk.c.setAttribute('cx', pt.x.toFixed(1)); pk.c.setAttribute('cy', pt.y.toFixed(1));
+      pk.c.setAttribute('opacity', Math.max(0, fade).toFixed(2));
+    }
+  }
+
+  function loop(now) {
+    if (visible && !document.hidden) draw(now);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+
+  /* auto-advance the highlighted step until the visitor takes over */
+  setInterval(function () {
+    if (!visible || document.hidden || reduce || Date.now() < hold) return;
+    setStep((step + 1) % cur.steps.length);
+  }, 4400);
+
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }, { threshold: 0.15 }).observe($('lab'));
+  } else { visible = true; }
+
+  buildTabs(); render(tabs[0]);
+  if (!reduce) requestAnimationFrame(loop);
+  window.addEventListener('resize', function () { draw(performance.now()); });
+})();
+
+/* Hero backdrop: concentric rings, four slow-turning wireframe solids and glowing orbit nodes. Back canvas sits behind the photo, front canvas above it. */
+(function () {
+  var stage = document.getElementById('stage'), cb = document.getElementById('cvBack'), cf = document.getElementById('cvFront');
+  if (!stage || !cb || !cf || !cb.getContext) return;
+  var xb = cb.getContext('2d'), xf = cf.getContext('2d');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W = 0, H = 0, dpr = 1, vis = true, F = 5, gx = 0, gy = 0, tx = 0, ty = 0;
+  var AZ = '76,195,255', SK = '150,225,255', AM = '255,193,90', GR = '60,230,140';
+
+  function size() {
+    var r = stage.getBoundingClientRect(); W = r.width; H = r.height; dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cb.width = cf.width = Math.max(1, Math.round(W * dpr)); cb.height = cf.height = Math.max(1, Math.round(H * dpr));
+  }
+  function rot(v, a) {
+    var x = v[0], y = v[1], z = v[2], c, s, t;
+    c = Math.cos(a.ry || 0); s = Math.sin(a.ry || 0); t = x * c + z * s; z = -x * s + z * c; x = t;
+    c = Math.cos(a.rx || 0); s = Math.sin(a.rx || 0); t = y * c - z * s; z = y * s + z * c; y = t;
+    c = Math.cos(a.rz || 0); s = Math.sin(a.rz || 0); t = x * c - y * s; y = x * s + y * c; x = t;
+    return [x, y, z];
+  }
+  /* solids are defined once as vertices plus edges (pairs at the shortest vertex distance) */
+  function solid(verts, scale) {
+    var e = [], i, j, d, min = 1e9, n = verts.length;
+    for (i = 0; i < n; i++) for (j = i + 1; j < n; j++) { d = Math.pow(verts[i][0] - verts[j][0], 2) + Math.pow(verts[i][1] - verts[j][1], 2) + Math.pow(verts[i][2] - verts[j][2], 2); if (d < min - 1e-6) { min = d; e = []; } if (Math.abs(d - min) < 1e-6) e.push([i, j]); }
+    return { v: verts.map(function (q) { return [q[0] * scale[0], q[1] * scale[1], q[2] * scale[2]]; }), e: e };
+  }
+  var cubeV = [], octV = [[1, 0, 0], [-1, 0, 0], [0, 1, 0], [0, -1, 0], [0, 0, 1], [0, 0, -1]], p = (1 + Math.sqrt(5)) / 2, icoV = [[0, 1, p], [0, 1, -p], [0, -1, p], [0, -1, -p], [1, p, 0], [1, -p, 0], [-1, p, 0], [-1, -p, 0], [p, 0, 1], [p, 0, -1], [-p, 0, 1], [-p, 0, -1]];
+  [-1, 1].forEach(function (a) { [-1, 1].forEach(function (b) { [-1, 1].forEach(function (c) { cubeV.push([a, b, c]); }); }); });
+  var shapes = [
+    { s: solid(icoV, [0.1, 0.1, 0.1]), c: [-0.74, -0.08], col: SK, sp: [0.12, 0.34], ph: 0 },
+    { s: solid(cubeV, [0.1, 0.1, 0.1]), c: [0.76, -0.46], col: SK, sp: [0.3, 0.5], ph: 1.3 },
+    { s: solid(octV, [0.17, 0.24, 0.17]), c: [0.6, 0.64], col: AM, sp: [0.1, 0.6], ph: 2.1 },
+    { s: solid(cubeV, [0.1, 0.17, 0.1]), c: [-0.6, 0.72], col: SK, sp: [0.08, 0.3], ph: 3.4 }
+  ];
+  /* rings: radius in half-stage units, angular speed, and the nodes riding on each */
+  var rings = [
+    { r: 0.7, w: 0.34, a: 0.14, n: [{ a: 0, l: 'AKS' }, { a: 2.09, l: 'Kubernetes' }, { a: 4.19, l: 'Helm' }, { a: 1.05, g: 1 }] },
+    { r: 0.84, w: -0.24, a: 0.1, n: [{ a: 0.6, l: 'Terraform' }, { a: 3.74, l: 'Ansible' }, { a: 2.2, g: 1 }, { a: 5.3, g: 1 }] },
+    { r: 0.97, w: 0.17, a: 0.07, n: [{ a: 1.5, l: 'Argo CD' }, { a: 4.6, l: 'DevOps' }, { a: 0.2, g: 1 }, { a: 3.1, g: 1 }] }
+  ];
+
+  function rr(ctx, x, y, w, h, r) { ctx.beginPath(); ctx.moveTo(x + r, y); ctx.arcTo(x + w, y, x + w, y + h, r); ctx.arcTo(x + w, y + h, x, y + h, r); ctx.arcTo(x, y + h, x, y, r); ctx.arcTo(x, y, x + w, y, r); ctx.closePath(); }
+  function tag(ctx, text, x, y, side) {
+    var fs = W < 400 ? 10 : 12;
+    ctx.save(); ctx.globalCompositeOperation = 'source-over'; ctx.font = '500 ' + fs + 'px "IBM Plex Mono",ui-monospace,Menlo,monospace';
+    var w = ctx.measureText(text).width + 14, h = fs + 9, px = side > 0 ? x + 10 : x - 10 - w, py = y - h / 2;
+    px = Math.max(2, Math.min(px, W - w - 2)); py = Math.max(2, Math.min(py, H - h - 2));
+    ctx.fillStyle = 'rgba(8,17,31,.82)'; ctx.strokeStyle = 'rgba(' + AZ + ',.55)'; ctx.lineWidth = 1; rr(ctx, px, py, w, h, 7); ctx.fill(); ctx.stroke();
+    ctx.fillStyle = '#e6eefb'; ctx.textBaseline = 'middle'; ctx.fillText(text, px + 7, py + h / 2 + 0.5); ctx.restore();
+  }
+  function dot(ctx, x, y, col, r) {
+    ctx.save(); ctx.shadowColor = 'rgba(' + col + ',1)'; ctx.shadowBlur = 16; ctx.fillStyle = 'rgba(' + col + ',.95)';
+    ctx.beginPath(); ctx.arc(x, y, r, 0, 6.2832); ctx.fill(); ctx.restore();
+  }
+
+  function frame(t) {
+    xb.setTransform(dpr, 0, 0, dpr, 0, 0); xf.setTransform(dpr, 0, 0, dpr, 0, 0);
+    xb.clearRect(0, 0, W, H); xf.clearRect(0, 0, W, H);
+    var h2 = W / 2, g = xb.createRadialGradient(W / 2, H / 2, W * 0.1, W / 2, H / 2, W * 0.5);
+    g.addColorStop(0, 'rgba(31,143,214,.2)'); g.addColorStop(1, 'rgba(31,143,214,0)'); xb.fillStyle = g; xb.fillRect(0, 0, W, H);
+
+    /* concentric rings */
+    rings.forEach(function (rg, i) {
+      xb.strokeStyle = 'rgba(' + AZ + ',' + [0.3, 0.2, 0.14][i] + ')'; xb.lineWidth = 1; xb.setLineDash(i === 2 ? [2, 7] : []);
+      xb.beginPath(); xb.arc(W / 2, H / 2, rg.r * h2, 0, 6.2832); xb.stroke();
+    });
+    xb.setLineDash([]);
+
+    /* wireframe solids */
+    shapes.forEach(function (sh) {
+      var ang = { rx: t * sh.sp[0] + sh.ph, ry: t * sh.sp[1] + sh.ph * 0.5, rz: 0.2 }, bob = Math.sin(t * 0.6 + sh.ph) * 0.015;
+      var cx = W / 2 + (sh.c[0] + gy * 0.1) * h2, cy = H / 2 + (sh.c[1] + gx * 0.1 + bob) * h2;
+      var pts = sh.s.v.map(function (q) { var r = rot(q, ang), s = F / (F + r[2]); return [cx + r[0] * s * h2, cy + r[1] * s * h2, r[2]]; });
+      xb.lineWidth = 1.2;
+      sh.s.e.forEach(function (e) {
+        var a = pts[e[0]], b = pts[e[1]], z = (a[2] + b[2]) / 2;
+        xb.strokeStyle = 'rgba(' + sh.col + ',' + (z > 0 ? 0.42 : 0.9).toFixed(2) + ')'; xb.beginPath(); xb.moveTo(a[0], a[1]); xb.lineTo(b[0], b[1]); xb.stroke();
+      });
+      pts.forEach(function (q) { xb.fillStyle = 'rgba(' + sh.col + ',.9)'; xb.fillRect(q[0] - 1.2, q[1] - 1.2, 2.4, 2.4); });
+    });
+
+    /* orbit nodes: keyword labels and plain glowing dots */
+    rings.forEach(function (rg) {
+      rg.n.forEach(function (n) {
+        var th = n.a + t * rg.w, x = W / 2 + Math.cos(th) * rg.r * h2, y = H / 2 + Math.sin(th) * rg.r * h2;
+        for (var k = 7; k >= 1; k--) {
+          var tt = th - k * 0.035 * Math.sign(rg.w); xf.fillStyle = 'rgba(' + (n.g ? GR : AZ) + ',' + (0.35 * (1 - k / 8)).toFixed(3) + ')';
+          xf.beginPath(); xf.arc(W / 2 + Math.cos(tt) * rg.r * h2, H / 2 + Math.sin(tt) * rg.r * h2, 2.4 * (1 - k / 10), 0, 6.2832); xf.fill();
+        }
+        dot(xf, x, y, n.g ? GR : AZ, n.g ? 5.5 : 3.6);
+        if (n.l) tag(xf, n.l, x, y, Math.cos(th) < 0 ? -1 : 1);
+      });
+    });
+  }
+
+  var t0 = performance.now();
+  function loop(now) {
+    gx += (tx - gx) * 0.06; gy += (ty - gy) * 0.06;
+    if (vis && !document.hidden) frame(reduce ? 3 : (now - t0) / 1000);
+    if (!reduce) requestAnimationFrame(loop);
+  }
+  window.addEventListener('pointermove', function (e) {
+    var r = stage.getBoundingClientRect(), nx = (e.clientX - (r.left + r.width / 2)) / Math.max(r.width, 300), ny = (e.clientY - (r.top + r.height / 2)) / Math.max(r.height, 300);
+    ty = Math.max(-0.45, Math.min(0.45, nx * 0.9)); tx = Math.max(-0.35, Math.min(0.35, ny * 0.7));
+  }, { passive: true });
+  if ('ResizeObserver' in window) new ResizeObserver(function () { size(); if (reduce) frame(3); }).observe(stage); else window.addEventListener('resize', size);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: 0 }).observe(stage);
+  size(); frame(reduce ? 3 : 0); if (!reduce) requestAnimationFrame(loop);
+})();
+
+/* Draggable 3D toolchain sphere: terms sit on a Fibonacci sphere, drag to turn, hover to read. Follows the skill group filter. */
+(function () {
+  var cv = document.getElementById('sphere');
+  if (!cv || !cv.getContext) return;
+  var ctx = cv.getContext('2d'), box = cv.parentNode;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var G = {
+    platform: { n: 'Platform', c: '76,195,255' },
+    delivery: { n: 'Delivery', c: '45,212,191' },
+    automation: { n: 'Automation', c: '255,193,90' },
+    ops: { n: 'Operations', c: '167,139,250' },
+    ai: { n: 'AI', c: '60,230,140' }
+  };
+  var L = {
+    platform: ['Azure', 'AKS', 'Kubernetes', 'Docker', 'Helm', 'Gateway API', 'Key Vault', 'Workload Identity', 'Azure networking'],
+    delivery: ['Azure DevOps', 'Argo CD', 'Git', 'GitHub', 'SonarQube', 'Trivy', 'Maven', 'npm'],
+    automation: ['Terraform', 'Ansible', 'Python', 'Shell'],
+    ops: ['Azure Monitor', 'Prometheus', 'Grafana', 'Linux', 'Red Hat', 'Ubuntu', 'Jira', 'ServiceNow'],
+    ai: ['MCP', 'RAG', 'ChromaDB', 'LLMs', 'AI agents', 'Cursor AI']
+  };
+  /* interleave the groups so colours mix around the globe */
+  var T = [], keys = Object.keys(L), more = true, i, k;
+  for (i = 0; more; i++) { more = false; for (k = 0; k < keys.length; k++) if (L[keys[k]][i]) { T.push([L[keys[k]][i], keys[k]]); more = true; } }
+  var N = T.length, pts = T.map(function (t, j) {
+    var y = 1 - 2 * (j + 0.5) / N, r = Math.sqrt(1 - y * y), a = j * 2.399963;
+    return { t: t[0], g: t[1], x: Math.cos(a) * r, y: y, z: Math.sin(a) * r, sx: 0, sy: 0, sw: 0, sh: 0, d: 0 };
+  });
+
+  var W = 0, H = 0, R = 0, dpr = 1, vis = true, rx = -0.25, ry = 0.6, vx = 0, vy = 0, drag = false, lx = 0, ly = 0, moved = 0;
+  var filter = 'all', hover = null, mx = -1, my = -1;
+  var nm = document.getElementById('sphName'), gp = document.getElementById('sphGroup');
+
+  function size() {
+    var r = box.getBoundingClientRect(); W = H = Math.round(r.width); dpr = Math.min(window.devicePixelRatio || 1, 2);
+    cv.width = cv.height = Math.max(1, Math.round(W * dpr)); R = W * (W < 400 ? 0.37 : 0.4);
+  }
+  function turn(p) {
+    var cy = Math.cos(ry), sy = Math.sin(ry), cx = Math.cos(rx), sx = Math.sin(rx);
+    var x = p[0] * cy + p[2] * sy, z = -p[0] * sy + p[2] * cy, y = p[1] * cx - z * sx; z = p[1] * sx + z * cx;
+    return [x, y, z];
+  }
+  function ring(pt, a) {
+    ctx.beginPath();
+    for (var s = 0; s <= 72; s++) {
+      var u = s / 72 * 6.2832, q = turn(pt(u)), f = 1 + 0.18 * q[2], x = W / 2 + q[0] * R * f, y = H / 2 + q[1] * R * f;
+      if (s) ctx.lineTo(x, y); else ctx.moveTo(x, y);
+    }
+    ctx.strokeStyle = 'rgba(76,195,255,' + a + ')'; ctx.lineWidth = 1; ctx.stroke();
+  }
+
+  function frame() {
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0); ctx.clearRect(0, 0, W, H);
+    var g = ctx.createRadialGradient(W / 2, H / 2, R * 0.2, W / 2, H / 2, R * 1.35);
+    g.addColorStop(0, 'rgba(31,143,214,.16)'); g.addColorStop(1, 'rgba(31,143,214,0)'); ctx.fillStyle = g; ctx.fillRect(0, 0, W, H);
+
+    /* faint globe: equator and two meridians */
+    ring(function (u) { return [Math.cos(u), 0, Math.sin(u)]; }, 0.2);
+    ring(function (u) { return [Math.cos(u), Math.sin(u), 0]; }, 0.12);
+    ring(function (u) { return [0, Math.cos(u), Math.sin(u)]; }, 0.12);
+
+    var fs = W < 400 ? 11 : 13;
+    pts.forEach(function (p) {
+      var q = turn([p.x, p.y, p.z]), f = 1 + 0.18 * q[2];
+      p.d = (q[2] + 1) / 2; p.sx = W / 2 + q[0] * R * f; p.sy = H / 2 + q[1] * R * f;
+    });
+    var order = pts.slice().sort(function (a, b) { return a.d - b.d; }), best = null, bd = -1;
+    order.forEach(function (p) {
+      var size = fs * (0.78 + 0.5 * p.d); ctx.font = '500 ' + size.toFixed(1) + 'px "IBM Plex Mono",ui-monospace,Menlo,monospace';
+      p.sw = ctx.measureText(p.t).width; p.sh = size;
+      if (mx >= 0 && Math.abs(mx - p.sx) < p.sw / 2 + 6 && Math.abs(my - p.sy) < size / 2 + 6 && p.d > bd) { best = p; bd = p.d; }
+    });
+    hover = best;
+    order.forEach(function (p) {
+      var on = filter === 'all' || filter === p.g, a = (0.14 + 0.86 * p.d * p.d) * (on ? 1 : 0.18), col = G[p.g].c, h = p === hover;
+      var size = fs * (0.78 + 0.5 * p.d) * (h ? 1.18 : 1);
+      ctx.font = '500 ' + size.toFixed(1) + 'px "IBM Plex Mono",ui-monospace,Menlo,monospace'; ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+      if (h) { ctx.save(); ctx.shadowColor = 'rgba(' + col + ',.9)'; ctx.shadowBlur = 14; ctx.fillStyle = '#fff'; ctx.fillText(p.t, p.sx, p.sy); ctx.restore(); return; }
+      ctx.fillStyle = 'rgba(' + col + ',' + a.toFixed(2) + ')'; ctx.fillText(p.t, p.sx, p.sy);
+      if (p.d > 0.55 && on) { ctx.fillStyle = 'rgba(' + col + ',' + (a * 0.9).toFixed(2) + ')'; ctx.beginPath(); ctx.arc(p.sx - p.sw / 2 - 7, p.sy, 1.8, 0, 6.2832); ctx.fill(); }
+    });
+    if (nm && gp) {
+      if (hover) { nm.textContent = hover.t; gp.textContent = G[hover.g].n; gp.style.color = 'rgb(' + G[hover.g].c + ')'; }
+      else if (!nm.dataset.idle) { nm.textContent = 'Hover a term'; gp.textContent = 'Drag the sphere to turn it'; gp.style.color = ''; nm.dataset.idle = '1'; }
+      if (hover) delete nm.dataset.idle;
+    }
+  }
+
+  function loop() {
+    if (!drag) { vy += (0.0045 - vy) * 0.04; vx *= 0.94; ry += vy; rx = Math.max(-1.2, Math.min(1.2, rx + vx)); }
+    if (vis && !document.hidden) frame();
+    requestAnimationFrame(loop);
+  }
+
+  function pos(e) { var r = cv.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; }
+  cv.addEventListener('pointerdown', function (e) { drag = true; moved = 0; lx = e.clientX; ly = e.clientY; pos(e); cv.classList.add('drag'); try { cv.setPointerCapture(e.pointerId); } catch (x) {} });
+  cv.addEventListener('pointermove', function (e) {
+    pos(e);
+    if (!drag) return;
+    var dx = e.clientX - lx, dy = e.clientY - ly; lx = e.clientX; ly = e.clientY; moved += Math.abs(dx) + Math.abs(dy);
+    vy = dx * 0.008; vx = dy * 0.006; ry += vy; rx = Math.max(-1.2, Math.min(1.2, rx + vx));
+  });
+  function up() { drag = false; cv.classList.remove('drag'); }
+  cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
+  cv.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { mx = my = -1; } });
+  cv.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') ry -= 0.2; else if (e.key === 'ArrowRight') ry += 0.2; else if (e.key === 'ArrowUp') rx = Math.max(-1.2, rx - 0.2); else if (e.key === 'ArrowDown') rx = Math.min(1.2, rx + 0.2); });
+  document.addEventListener('skillfilter', function (e) { filter = e.detail || 'all'; });
+
+  if ('ResizeObserver' in window) new ResizeObserver(size).observe(box); else window.addEventListener('resize', size);
+  if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { vis = e[0].isIntersecting; }, { threshold: 0 }).observe(box);
+  size();
+  if (reduce) { frame(); document.addEventListener('skillfilter', frame); cv.addEventListener('pointermove', frame); } else requestAnimationFrame(loop);
+})();
+
+/* Page behaviour: menu, active nav, ticker, skill filter, RAG packets, agent terminal, copy button. */
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); }, $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* mobile menu */
+  var btn = $('#menuBtn'), nav = $('#nav');
+  function setMenu(open) { nav.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu'); btn.firstElementChild.firstElementChild.setAttribute('href', open ? '#i-x' : '#i-menu'); }
+  btn.addEventListener('click', function () { setMenu(!nav.classList.contains('open')); });
+  $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+
+  /* active nav link */
+  if ('IntersectionObserver' in window) {
+    var links = {}; $$('a', nav).forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { $$('a', nav).forEach(function (a) { a.classList.remove('on'); }); var l = links[e.target.id]; if (l) l.classList.add('on'); } });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    Object.keys(links).forEach(function (id) { var s = document.getElementById(id); if (s) io.observe(s); });
+  }
+
+  /* keyword ticker: duplicate once so the loop is seamless */
+  var tk = $('#ticker');
+  if (tk) { Array.prototype.slice.call(tk.children).forEach(function (c) { var d = c.cloneNode(true); d.setAttribute('aria-hidden', 'true'); tk.appendChild(d); }); }
+
+  /* skill filter */
+  var pills = $$('.skill-tabs .pill'), cards = $$('#skillGrid .skill-card');
+  pills.forEach(function (p) {
+    p.addEventListener('click', function () {
+      var f = p.getAttribute('data-f');
+      pills.forEach(function (q) { q.setAttribute('aria-pressed', q === p ? 'true' : 'false'); });
+      cards.forEach(function (c) { c.classList.toggle('dim', f !== 'all' && c.getAttribute('data-g') !== f); });
+      document.dispatchEvent(new CustomEvent('skillfilter', { detail: f }));
+    });
+  });
+
+  /* RAG diagram packets (SMIL, so they keep running without script) */
+  var NS = 'http://www.w3.org/2000/svg', rag = $('#ragSvg'), pk = $('#ragPk');
+  if (rag && pk) {
+    [['M65 62 H485', 'pkt amber', 3, 6], ['M485 62 V142 H205 V222', 'pkt teal', 3, 6], ['M65 222 H485', 'pkt', 3, 6]].forEach(function (s) {
+      for (var i = 0; i < s[2]; i++) {
+        var c = document.createElementNS(NS, 'circle'); c.setAttribute('r', 3.4); c.setAttribute('class', s[1]);
+        var a = document.createElementNS(NS, 'animateMotion'); a.setAttribute('dur', s[3] + 's'); a.setAttribute('repeatCount', 'indefinite'); a.setAttribute('begin', (-i * s[3] / s[2]) + 's'); a.setAttribute('path', s[0]);
+        c.appendChild(a); pk.appendChild(c);
+      }
+    });
+    if (reduce && rag.pauseAnimations) rag.pauseAnimations();
+    var nodeText = {
+      oss: [['Runbooks', 'PDFS · DOCS'], ['Chunk', 'SPLIT TEXT'], ['Embed', 'VECTORS'], ['ChromaDB', 'VECTOR INDEX'], ['Question', 'OPERATOR'], ['Retrieve', 'TOP MATCHES'], ['LLM agent', 'MCP TOOLS'], ['Answer', 'WITH CONTEXT']],
+      az: [['Blob Storage', 'SOURCE FILES'], ['Functions', 'PYTHON JOB'], ['Azure OpenAI', 'EMBEDDINGS'], ['AI Search', 'VECTOR INDEX'], ['Question', 'OPERATOR'], ['AI Search', 'HYBRID QUERY'], ['Azure OpenAI', 'AGENT + MCP'], ['Answer', 'WITH CONTEXT']]
+    };
+    var mapRows = {
+      oss: [['Extract and chunk', 'Python pipeline over runbooks and PDFs'], ['Embeddings', 'Generated in the pipeline'], ['Vector index', 'ChromaDB'], ['Retrieval', 'Context-aware lookup for the LLM agent']],
+      az: [['Source files', 'Azure Blob Storage'], ['Text extraction', 'Azure AI Document Intelligence'], ['Chunk and embed job', 'Azure Functions, Container Apps jobs or an AKS CronJob'], ['Embeddings and answers', 'Azure OpenAI'], ['Vector and hybrid search', 'Azure AI Search'], ['Chat memory', 'Azure Cosmos DB'], ['Secrets and access', 'Key Vault with a managed identity'], ['Monitoring', 'Azure Monitor']]
+    };
+    var notes = { oss: 'What the PoC uses today.', az: 'Azure services that fit each stage. These are options, not a record of what is deployed.' };
+    function setRag(mode) {
+      $$('#ragSvg g.g').forEach(function (g, i) { g.querySelector('.t').textContent = nodeText[mode][i][0]; g.querySelector('.s').textContent = nodeText[mode][i][1]; });
+      $('#ragSvg .zl').textContent = mode === 'az' ? 'INGESTION · AZURE' : 'INGESTION · PYTHON';
+      var m = $('#azMap'); m.innerHTML = '';
+      mapRows[mode].forEach(function (r) { var d = document.createElement('div'), a = document.createElement('span'), b = document.createElement('span'); a.textContent = r[0]; b.textContent = r[1]; d.appendChild(a); d.appendChild(b); m.appendChild(d); });
+      $('#azNote').textContent = notes[mode];
+      $$('[data-rag]').forEach(function (b) { b.setAttribute('aria-pressed', b.getAttribute('data-rag') === mode ? 'true' : 'false'); });
+    }
+    $$('[data-rag]').forEach(function (b) { b.addEventListener('click', function () { setRag(b.getAttribute('data-rag')); }); });
+    setRag('oss');
+  }
+
+  /* agent terminal: typed, illustrative conversations */
+  var tb = $('#termBody');
+  var scenes = [
+    [['u', '$ ask "checkout-api pods keep restarting in prod"'], ['d', ''], ['m', '› kubectl get pods -n checkout'], ['d', '  checkout-api-7d9f6   0/1   CrashLoopBackOff   6'], ['m', '› kubectl describe pod checkout-api-7d9f6'], ['d', '  Last State: Terminated, Reason: OOMKilled'], ['m', '› metrics: memory working set vs limit'], ['a', 'Finding: the container is being OOMKilled.'], ['a', 'Memory usage after the last release exceeds the configured limit.'], ['w', 'Next: raise the limit in the Helm values, let Argo CD sync, and watch it in Grafana.']],
+    [['u', '$ ask "where can we cut AKS cost this month?"'], ['d', ''], ['m', '› azure: node pool utilisation, last 30 days'], ['m', '› kubectl top nodes'], ['a', 'Finding: one node pool is consistently under-used.'], ['a', 'Pods requesting far more CPU than they use keep nodes from scaling in.'], ['w', 'Next: right-size the requests, then lower the pool’s minimum node count.']]
+  ];
+  function typeScene(i) {
+    var s = scenes[i % scenes.length], li = 0, ci = 0, html = '';
+    tb.innerHTML = '';
+    function line() {
+      if (li >= s.length) { setTimeout(function () { typeScene(i + 1); }, 6000); return; }
+      var cls = s[li][0], text = s[li][1], span = document.createElement('div'); span.className = cls; tb.appendChild(span); ci = 0;
+      (function ch() {
+        if (ci <= text.length) { span.textContent = text.slice(0, ci++); setTimeout(ch, cls === 'd' ? 4 : 13); }
+        else { li++; setTimeout(line, cls === 'm' ? 480 : 260); }
+      })();
+    }
+    line();
+  }
+  function staticScene() { tb.innerHTML = ''; scenes[0].forEach(function (l) { var d = document.createElement('div'); d.className = l[0]; d.textContent = l[1]; tb.appendChild(d); }); }
+  if (tb) {
+    if (reduce) staticScene();
+    else if ('IntersectionObserver' in window) { var started = false; new IntersectionObserver(function (e, o) { if (e[0].isIntersecting && !started) { started = true; typeScene(0); o.disconnect(); } }, { threshold: 0.25 }).observe(tb); }
+    else typeScene(0);
+    if (!reduce) tb.textContent = 'Waiting for a question…';
+  }
+
+  /* copy email */
+  $$('.copy').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var v = b.getAttribute('data-copy'), done = function () { b.textContent = 'COPIED'; setTimeout(function () { b.textContent = 'COPY'; }, 1800); };
+      function fallback() { var r = document.createRange(), sm = b.parentNode.querySelector('small'); r.selectNodeContents(sm); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'SELECTED'; setTimeout(function () { b.textContent = 'COPY'; }, 1800); }
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v).then(done, fallback); else fallback();
+    });
+  });
+})();
+
+</script>
+</body>
+</html>
